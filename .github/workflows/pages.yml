@@ -1,0 +1,59 @@
+# Publish the static site to GitHub Pages on every push to main.
+#
+# The site is the repository root (index.html, CNAME, css/, assets/, and the
+# other public files). There is no build step.
+#
+# Actions, in the order GitHub expects:
+#   actions/configure-pages
+#   actions/upload-pages-artifact
+#   actions/deploy-pages
+#
+# One-time setup lives in the repository Settings → Pages → Source: GitHub Actions.
+# The CNAME file is the domain this artifact advertises. Registering the domain
+# still has to be done once in the Pages settings. See README.md.
+
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: read
+
+# Don't cancel a production deploy that is already in progress.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Check the custom domain file
+        run: test "$(tr -d '\r\n' < CNAME)" = "agentops.studio"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          # Root of the repo. Dotfiles such as .github are left out by this
+          # action. CNAME is not a dotfile, so the custom domain file is included.
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

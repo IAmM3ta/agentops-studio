@@ -1,0 +1,3 @@
+# Keep the Pages domain file a single LF-ended line.
+CNAME text eol=lf
+* text=auto eol=lf
