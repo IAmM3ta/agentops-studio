@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-11-22
+- Public name shortened from "Robert F. Thomas" to "Robert Thomas" across the site (meta author, schema.org, copy, footer) at Robert's request.
+
 This repository follows a daily-commit practice. Add an entry on each day the site changes. Dates are the day the change is made. Newest entries go at the top.
 
 ## 2026-11-22

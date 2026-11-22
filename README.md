@@ -2,7 +2,7 @@
 
 Public marketing site for [agentops.studio](https://agentops.studio).
 
-Agent Ops Studio is a sub-brand of Memetic Media, run by Robert F. Thomas. The site offers **LedgerWright / Spreadsheet Rescue**: AI-assisted bookkeeping and data-desk work for small businesses (contractors, trades, property managers, and similar). Supplier bills, receipts, and messy spreadsheets are cleaned, categorized, and tagged by job and cost type, then returned as CSV and Excel.
+Agent Ops Studio is a sub-brand of Memetic Media, run by Robert Thomas. The site offers **LedgerWright / Spreadsheet Rescue**: AI-assisted bookkeeping and data-desk work for small businesses (contractors, trades, property managers, and similar). Supplier bills, receipts, and messy spreadsheets are cleaned, categorized, and tagged by job and cost type, then returned as CSV and Excel.
 
 This repository is the website only. It is plain HTML and CSS, served free from GitHub Pages. There is no build step, no application source, and no secrets.
 
@@ -69,7 +69,7 @@ Search for `square.link` and replace each one if the link changes. As of 2026-11
 
 **Naming.** Public copy uses only these names:
 
-- Robert F. Thomas
+- Robert Thomas
 - Memetic Media
 - Agent Ops Studio
 
