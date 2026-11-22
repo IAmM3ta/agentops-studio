@@ -65,6 +65,8 @@ Search for `square.link` and replace each one if the link changes. As of 2026-11
 
 **Sample.** The before/after table and the three example cards are fictional and say so in several places. Keep that label if you rewrite the rows. Do not replace them with a real client's file.
 
+**Donor sample (added 2026-11-22).** `index.html` has a second sample at `#donors` for nonprofit gift exports, plus a FAQ answer. The rows follow the fictional `donors` profile sample in the private tool repo. Keep these limits in the copy: duplicates are linked not merged, doubtful gifts stay blank, each row reports receipt-readiness, and the service does not write receipts or edit a donor database. The footer links to `/#donors` (the header nav is unchanged). The meta description mentions donor lists. `sitemap.xml` lastmod is 2026-11-22.
+
 **Naming.** Public copy uses only these names:
 
 - Robert F. Thomas
