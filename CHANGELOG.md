@@ -2,6 +2,7 @@
 
 ## 2026-11-23
 
+- FAQ "What does the 30 days of upkeep in the Founding Bundle cover?" (`#upkeep`): two small changes (about 30 min each) or one refresh of up to about 100 rows, 48-hour business-day replies, starts at Rescue delivery, no rollover, exclusions, and how to ask by email. The Founding Bundle line under the Starter card links to it. `/start/` Founding Bundle card states the same terms.
 - Founding offers under the Starter card (approved by Robert): Founding Bundle, fix + 30 days upkeep, $295 (https://square.link/u/gGVNbm1B, first 5 clients, through Dec 1) and Founding Custom Build $500 flat with a $250 deposit (https://square.link/u/tVo4GYpe). Both added to the JSON-LD offers.
 - "Just paid? Send your file" strip at the top of the homepage, because the $295 and $250 links redirect to the homepage after checkout. `/start/` now has a "Which did you buy?" block for all three packages and a package field in the email subject.
 - New post-payment intake page at `/start/` (`start/index.html`, `noindex`). It tells a paid Spreadsheet Rescue buyer exactly what to send, by email to robert@agentops.studio with a prefilled subject and four questions, what happens next, and the Starter scope (one source, about 200 rows or 25 documents, one revision, not advice, no live QuickBooks/Xero edits). Square's "redirect after checkout" setting should point here (see README, "Payment-to-delivery flow").
