@@ -2,6 +2,8 @@
 
 ## 2026-11-23
 
+- Footer: "Part of Memetic Media" plus links to the Memetic Media network sites (Memetic Media, LedgerWright templates, Memetic Visuals, LiTHOS, MORPHOS) on the homepage, `/start/` and `/dashboard-intake/`. JSON-LD `parentOrganization` gains the Memetic Media URL.
+- New `#templates` section linking the standalone LedgerWright templates page (Cash Flow $14, Job-Cost $14, Bundle $24), between `#dashboards` and `#sample`.
 - Ops Dashboard Build is live (approved by Robert): homepage section `#dashboards` plus a "Dashboards" nav link, with Starter $750 (https://square.link/u/GcJ8BigP) and Pro $1,500 (https://square.link/u/XYZYaCqO), both verified enabled with redirect to `/start/`. New page `/dashboard-intake/` (intake form, no backend: prefilled email; pay buttons replace the draft's placeholders). JSON-LD offers for $750 and $1,500. `/start/` gets an "Ops Dashboard" card. `sitemap.xml` adds `/dashboard-intake/`, lastmod 2026-11-23.
 - FAQ "What does the 30 days of upkeep in the Founding Bundle cover?" (`#upkeep`): two small changes (about 30 min each) or one refresh of up to about 100 rows, 48-hour business-day replies, starts at Rescue delivery, no rollover, exclusions, and how to ask by email. The Founding Bundle line under the Starter card links to it. `/start/` Founding Bundle card states the same terms.
 - Founding offers under the Starter card (approved by Robert): Founding Bundle, fix + 30 days upkeep, $295 (https://square.link/u/gGVNbm1B, first 5 clients, through Dec 1) and Founding Custom Build $500 flat with a $250 deposit (https://square.link/u/tVo4GYpe). Both added to the JSON-LD offers.

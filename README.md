@@ -96,6 +96,13 @@ Keep the scope line on `/start/` (one source, about 200 rows or 25 documents, 1 
 - `/dashboard-intake/` cannot receive posts or files (GitHub Pages is static). On submit, an inline script builds a plain-text email to the intake address, and the buyer attaches exports in their mail app. Answers over about 1,700 characters are copied to the clipboard instead of going into the mailto URL.
 - Keep prices in three places in sync: the `#dashboards` cards, the JSON-LD offers "Ops Dashboard Build, Starter/Pro", and `/dashboard-intake/`.
 
+## Memetic Media network and LedgerWright templates (added 2026-11-23)
+
+- Footer on every page (`index.html`, `start/`, `dashboard-intake/`): "Agent Ops Studio is part of Memetic Media" plus a `footer-links` list to Memetic Media, LedgerWright templates, Memetic Visuals, LiTHOS and MORPHOS. Keep it in sync with `NET` in `memetic-media/builder/build.py`. When memeticmedia.studio is bought, replace the `iamm3ta.github.io/memetic-media/` URLs.
+- `index.html#templates` (between `#dashboards` and `#sample`): teaser for the do-it-yourself templates (Cash Flow $14, Bundle $24, Job-Cost $14). Buttons go to https://iamm3ta.github.io/ledgerwright-templates/ (`#cashflow`, `#bundle`, `#jobcost`), where checkout lives, so this section does not change when Gumroad links go live.
+- JSON-LD `parentOrganization` now carries the Memetic Media URL.
+- Source of these snippets: `/workspace/memetic-sites/agentops-patch.md`.
+
 ## Deploy
 
 Pushes to `main` run `.github/workflows/pages.yml`. The workflow checks that `CNAME` is exactly `agentops.studio`, then runs:
