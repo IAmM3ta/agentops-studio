@@ -83,7 +83,8 @@ Package blurbs (what "a short stack" or "a larger desk" means) are the public de
 1. Buyer clicks **Pay / Book** and pays $150 on the Square payment link.
 2. Square redirects to **`https://agentops.studio/start/`**. This needs one setting in Square Dashboard: Payments > Payment links > (the Spreadsheet Rescue link) > Edit > *Redirect to a website after checkout* = `https://agentops.studio/start/`. Square's help notes some link types only offer the redirect in the Dashboard; if the existing link does not show the toggle, create a new "Collect a payment" link for $150 with the redirect on, then replace every `square.link` URL in this repo.
 3. `/start/` tells the buyer to email the file to `robert@agentops.studio` with a prefilled subject (`Rescue intake - <name on Square receipt>`) and four questions. GitHub Pages cannot accept uploads, which is why intake is email, not a form.
-4. The homepage FAQ "I already paid. How do I send my file?" and the pricing footnote link to `/start/` for buyers who skip the redirect.
+4. The $295 Founding Bundle (https://square.link/u/gGVNbm1B) and $250 Custom Build deposit (https://square.link/u/tVo4GYpe) redirect to the homepage root; the red "Just paid?" strip at the top of `index.html` sends those buyers to `/start/`. Remove the Founding Bundle line after Dec 1 or 5 clients.
+5. The homepage FAQ "I already paid. How do I send my file?" and the pricing footnote link to `/start/` for buyers who skip the redirect.
 
 Keep the scope line on `/start/` (one source, about 200 rows or 25 documents, 1 revision, no advice, no live QuickBooks/Xero edits) in sync with the Starter card and the private delivery playbook.
 

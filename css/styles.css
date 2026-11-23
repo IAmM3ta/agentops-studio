@@ -1091,3 +1091,44 @@ section {
     font-size: 0.85em;
   }
 }
+
+/* "Just paid?" strip + founding offers under the Starter card (added 2026-11-23) */
+.paid-strip {
+  background: var(--red);
+  color: #fff;
+}
+.paid-strip-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.paid-strip p {
+  margin: 0;
+  color: #fff;
+}
+.paid-strip .btn {
+  background: #fff;
+  color: var(--red);
+  border-color: #fff;
+}
+.tier-extras {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+  font-size: 0.92rem;
+}
+.tier-extras a {
+  font-weight: 600;
+  text-underline-offset: 0.16em;
+}
+.tier-extras span {
+  color: inherit;
+  opacity: 0.75;
+}

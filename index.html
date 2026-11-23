@@ -59,6 +59,24 @@
     },
     {
       "@type": "Offer",
+      "name": "Founding Bundle: Spreadsheet Rescue + 30 days Ops Care",
+      "price": "295",
+      "priceCurrency": "USD",
+      "url": "https://square.link/u/gGVNbm1B",
+      "availability": "https://schema.org/LimitedAvailability",
+      "description": "One Spreadsheet Rescue plus 30 days of upkeep. First 5 clients, through December 1, 2026."
+    },
+    {
+      "@type": "Offer",
+      "name": "Founding Custom Build (deposit)",
+      "price": "250",
+      "priceCurrency": "USD",
+      "url": "https://square.link/u/tVo4GYpe",
+      "availability": "https://schema.org/InStock",
+      "description": "Deposit to start a $500 flat Founding Custom Build."
+    },
+    {
+      "@type": "Offer",
       "name": "Standard",
       "price": "350",
       "priceCurrency": "USD",
@@ -122,6 +140,19 @@
 </header>
 
 <main id="main">
+  <!--
+    "Just paid?" strip (added 2026-11-23). All three Square links can land buyers here:
+      $150 Rescue          https://square.link/u/rX4tuObB  (redirect to /start/ still to be set in Square)
+      $295 Founding Bundle https://square.link/u/gGVNbm1B  (redirects to https://agentops.studio)
+      $250 Build deposit   https://square.link/u/tVo4GYpe  (redirects to https://agentops.studio)
+    so the first thing a buyer sees after paying is where to send the file.
+  -->
+  <aside class="paid-strip" aria-label="Already paid">
+    <div class="wrap paid-strip-bar">
+      <p><strong>Just paid?</strong> Send your file here. The clock starts when it arrives.</p>
+      <a class="btn btn-small" href="/start/">Send your file</a>
+    </div>
+  </aside>
 
   <header class="hero">
     <div class="wrap hero-grid">
@@ -230,6 +261,11 @@
           <p class="price"><span class="currency">$</span>150</p>
           <p class="tier-copy">One messy spreadsheet, or a short stack of supplier bills and receipts. Formats fixed, duplicates shown, rows tagged by job and cost type. CSV and Excel, plus the report. Delivered within 48 hours of receiving the file.</p>
           <a class="btn" href="https://square.link/u/rX4tuObB" target="_blank" rel="noopener noreferrer">Pay / Book<span class="sr-only"> Starter, Spreadsheet Rescue, opens Square in a new tab</span></a>
+          <!-- Secondary founding offers (added 2026-11-23, approved by Robert). Remove the bundle line after Dec 1 or 5 clients. -->
+          <ul class="tier-extras">
+            <li><a href="https://square.link/u/gGVNbm1B" target="_blank" rel="noopener noreferrer">Founding Bundle — fix + 30 days upkeep, $295</a> <span>(first 5 clients, through Dec 1)</span></li>
+            <li><a href="https://square.link/u/tVo4GYpe" target="_blank" rel="noopener noreferrer">Bigger system? Founding Custom Build $500 flat — $250 deposit to start</a></li>
+          </ul>
         </article>
 
         <article class="tier tier-standard">
@@ -264,7 +300,7 @@
         </div>
       </article>
 
-      <p class="footnote">Pay / Book opens our Square page, which checks out Spreadsheet Rescue, the Starter package, at $150. After paying you land on <a href="/start/">the send-your-file page</a>. For Standard, Premium, or a monthly retainer, email <a href="mailto:robert@agentops.studio">robert@agentops.studio</a> first and we will confirm the amount before you pay.</p>
+      <p class="footnote">Pay / Book opens our Square page, which checks out Spreadsheet Rescue, the Starter package, at $150. The Founding Bundle ($295) and the Custom Build deposit ($250) have their own Square pages. After paying for any of them, use <a href="/start/">the send-your-file page</a>. For Standard, Premium, or a monthly retainer, email <a href="mailto:robert@agentops.studio">robert@agentops.studio</a> first and we will confirm the amount before you pay.</p>
     </div>
   </section>
 

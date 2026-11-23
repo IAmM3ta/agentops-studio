@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Send your file: Spreadsheet Rescue intake — Agent Ops Studio</title>
+<title>Just paid? Send your file — Agent Ops Studio</title>
 <meta name="description" content="Paid for a Spreadsheet Rescue? Here is exactly what to send and how. The 48-hour clock starts when your file arrives.">
 <!-- Post-payment page: Square redirects buyers here after checkout. Kept out of search results. -->
 <meta name="robots" content="noindex">
@@ -21,11 +21,12 @@
 
 <!--
   INTAKE PAGE (added 2026-11-23)
-  Purpose: the one place a paid Spreadsheet Rescue buyer is told what to send.
+  Purpose: the one place a paid buyer (Rescue $150, Founding Bundle $295, Custom Build deposit $250) is told what to send.
   How buyers get here:
     1. Square payment link "Redirect to a website after checkout" -> https://agentops.studio/start/
        (set in Square Dashboard > Payments > Payment links > Edit; see README "Payment-to-delivery flow").
-    2. The "Already paid?" FAQ entry on the homepage.
+    2. The "Just paid?" strip at the top of the homepage (the $295 and $250 links redirect to the homepage)
+       and the "I already paid" FAQ entry.
   Why email and not an upload form: GitHub Pages is static and cannot receive files, and a hosted
   form service would mean a new account. Email to robert@agentops.studio needs nothing new.
   Keep the scope numbers here in sync with ledgerwright-marketing/packages/spreadsheet-rescue.md
@@ -58,14 +59,27 @@
 <main id="main">
   <section class="hero">
     <div class="wrap">
-      <p class="kicker">Spreadsheet Rescue · next step</p>
+      <p class="kicker">Next step after paying</p>
       <h1>Thanks for your order. Now send the file.</h1>
-      <p class="lede">Your 48-hour turnaround starts when your file arrives. One email does it: attach the file, answer four short questions, send. You will get a reply confirming we have it.</p>
+      <p class="lede">Whichever package you bought, one email starts the work: attach your file (or describe your system), answer four short questions, send. For a Spreadsheet Rescue the 48-hour turnaround starts when your file arrives. You will get a reply confirming we have it.</p>
       <div class="missing-actions">
         <!-- Prefilled subject and body so every intake email has the same shape (easy to find and to process). -->
-        <a class="btn" href="mailto:robert@agentops.studio?subject=Rescue%20intake%20-%20%5Bname%20on%20your%20Square%20receipt%5D&amp;body=Name%20on%20the%20Square%20receipt%3A%20%0A%0A1.%20What%20is%20in%20the%20file%20(bills%2C%20receipts%2C%20customer%20or%20donor%20list%2C%20other)%3F%20%0A%0A2.%20What%20should%20the%20finished%20file%20let%20you%20do%3F%20%0A%0A3.%20Columns%2C%20jobs%20or%20categories%20to%20use%20(if%20you%20have%20them)%3A%20%0A%0A4.%20Anything%20we%20should%20NOT%20change%3A%20%0A%0A(Attach%20the%20file%20before%20sending.)">Email your file to robert@agentops.studio</a>
+        <a class="btn" href="mailto:robert@agentops.studio?subject=Intake%20-%20%5BRescue%20%2F%20Founding%20Bundle%20%2F%20Custom%20Build%5D%20-%20%5Bname%20on%20your%20Square%20receipt%5D&amp;body=Name%20on%20the%20Square%20receipt%3A%20%0A%0A1.%20What%20is%20in%20the%20file%20(bills%2C%20receipts%2C%20customer%20or%20donor%20list%2C%20other)%3F%20%0A%0A2.%20What%20should%20the%20finished%20file%20let%20you%20do%3F%20%0A%0A3.%20Columns%2C%20jobs%20or%20categories%20to%20use%20(if%20you%20have%20them)%3A%20%0A%0A4.%20Anything%20we%20should%20NOT%20change%3A%20%0A%0A(Attach%20the%20file%20before%20sending.)">Email your file to Agent Ops Studio</a>
         <a class="btn btn-ghost" href="#what-to-send">What to send</a>
       </div>
+    </div>
+  </section>
+
+  <!-- One block per Square link; all three send the same intake email, with the package named in the subject. -->
+  <section class="band" id="which">
+    <div class="wrap">
+      <p class="kicker">Which did you buy?</p>
+      <h2>Same email, three packages</h2>
+      <ol class="steps">
+        <li class="step"><h3>Spreadsheet Rescue · $150</h3><p>Attach the one file to clean. Back within 48 hours of the file arriving.</p></li>
+        <li class="step"><h3>Founding Bundle · $295</h3><p>Rescue plus 30 days of upkeep. Attach the file now, same as the Rescue. In the email, say how you will send updates during the 30 days (for example, a weekly export). Upkeep starts on the day we deliver the cleaned file.</p></li>
+        <li class="step"><h3>Custom Build deposit · $250</h3><p>For the $500 flat Founding Custom Build. No file needed yet: describe what the system should do, what you use today, and attach a sample export if you have one. We reply with a short written scope and a due date before work starts. The other $250 is due at delivery.</p></li>
+      </ol>
     </div>
   </section>
 
@@ -75,7 +89,7 @@
       <h2>What to send</h2>
       <ol class="steps">
         <li class="step"><h3>The file</h3><p>Attach an Excel (.xlsx), CSV, or a Google Sheets export (File &gt; Download &gt; Microsoft Excel). For bills and receipts, PDFs with selectable text or pasted email text work. Too big to attach? Put a share link in the email with view access for robert@agentops.studio.</p></li>
-        <li class="step"><h3>Your name on the receipt</h3><p>Put the name on your Square receipt in the subject line so we can match your payment.</p></li>
+        <li class="step"><h3>Package and name</h3><p>Put the package and the name on your Square receipt in the subject line so we can match your payment. The email button fills in the shape for you.</p></li>
         <li class="step"><h3>Four short answers</h3><p>What is in the file. What the finished file should let you do. Any columns, jobs, or categories to use. Anything we should not change. The email button above fills these in for you.</p></li>
         <li class="step"><h3>Take out private numbers</h3><p>Remove Social Security numbers, full card or bank numbers, passwords, and tax-return packets. Names, vendors, dates, and amounts are what the cleanup needs.</p></li>
       </ol>
@@ -92,7 +106,7 @@
         <li class="step"><h3>You get it back</h3><p>Within 48 hours: the cleaned file as Excel and CSV, plus a short report of every change and every item that needs your eye.</p></li>
         <li class="step"><h3>One revision</h3><p>Reply within 7 days if we misread or mistagged something that was in the file, and we fix it.</p></li>
       </ol>
-      <!-- Scope: keep in sync with packages/spreadsheet-rescue.md (about 200 rows or 25 documents, one source). -->
+      <!-- Scope: keep in sync with packages/spreadsheet-rescue.md (about 200 rows or 25 documents, one source). The Custom Build scope is agreed in writing per job. -->
       <p class="footnote">The Starter package covers one source file: up to about 200 rows, or up to 25 bills or receipts. It is a data cleanup, not bookkeeping, tax, or legal advice, and we do not log in to or edit QuickBooks, Xero, or other live systems. Working copies are deleted within 14 days of delivery, or sooner if you ask.</p>
     </div>
   </section>
