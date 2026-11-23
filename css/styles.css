@@ -1128,7 +1128,8 @@ section {
   font-weight: 600;
   text-underline-offset: 0.16em;
 }
+/* Muted note text. Solid --muted instead of opacity so the nested
+   "What upkeep covers" link keeps 4.5:1 contrast (Lighthouse a11y, 2026-11-23). */
 .tier-extras span {
-  color: inherit;
-  opacity: 0.75;
+  color: var(--muted);
 }
