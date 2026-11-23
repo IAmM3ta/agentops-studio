@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Agent Ops Studio — messy bills cleaned into a job-cost file</title>
-<meta name="description" content="Supplier bills, receipts, and spreadsheets cleaned and tagged by job and cost type for contractors, trades, and property managers. Nonprofit donor lists too. CSV and Excel from $150.">
+<meta name="description" content="Supplier bills, receipts, and spreadsheets cleaned and tagged by job and cost type for contractors, trades, and property managers, plus rent rolls and nonprofit donor lists. CSV and Excel from $150.">
 <meta name="author" content="Robert Thomas">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#9f2d20">
@@ -598,6 +598,21 @@
     </div>
   </section>
 
+  <!-- Rent-roll teaser (added 2026-11-23). Full fictional before/after lives at /rent-roll/.
+       Claims must match the LedgerWright `rentroll` profile; see the comment at the top of rent-roll/index.html. -->
+  <section class="band" id="rentroll">
+    <div class="wrap">
+      <p class="kicker">Sample · Property managers</p>
+      <h2>Rent rolls and tenant ledgers, checked unit by unit</h2>
+      <p class="sub">Send the rent roll export you already have. Rent is checked against paid for every unit. A unit entered twice or a tenant on two units is pointed out and never merged. A deposit typed in the rent column, a hedged "1,150?", or two checks in one cell are left blank and flagged, not guessed. A lease that ended with no renewal written is marked expired, never quietly rolled to month-to-month. Each row says whether it is ready to import, and if not, what is missing.</p>
+      <div class="hero-actions">
+        <a class="btn" href="/rent-roll/">See the rent-roll sample</a>
+        <a class="btn btn-ghost" href="mailto:robert@agentops.studio?subject=Rent%20roll%20cleanup">Email about a rent roll</a>
+      </div>
+      <p class="footnote">The sample is fictional (SAMPLE data, not a client file). One rent roll export fits the $150 Starter.</p>
+    </div>
+  </section>
+
   <section class="band" id="faq">
     <div class="wrap">
       <p class="kicker">FAQ</p>
@@ -646,6 +661,11 @@
           <summary>Do you clean donor lists for nonprofits?</summary>
           <p>Yes. Send the donor or gift export as CSV or Excel. Possible duplicate donors and households are linked with a reason and never merged. Pledges, unclear amounts, missing names, and unclear dates are left blank and flagged. Each row says whether it is ready for a receipt, and if not, what is missing. We do not write the receipts or change your donor database. You get a clean file to check and import. See the <a href="/#donors">donor sample</a>.</p>
         </details>
+        <!-- Added 2026-11-23 with the rent-roll page. -->
+        <details>
+          <summary>Do you clean rent rolls for property managers?</summary>
+          <p>Yes. Send the rent roll or tenant ledger export as CSV or Excel. Rent is checked against paid for each unit, and short or over payments are flagged. Duplicate units and tenants on two units are pointed out, never merged. Figures are only read from the column that names them, so a deposit is never booked as rent. Ended leases are not rolled to month-to-month unless your file says so. We clean the file; we do not change your property-management software. See the <a href="/rent-roll/">rent-roll sample</a>.</p>
+        </details>
         <details>
           <summary>What if my pile is bigger than the package?</summary>
           <p>Tell us roughly how many files or rows. We will quote it before you pay.</p>
@@ -683,6 +703,7 @@
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/#sample">Sample</a></li>
       <li><a href="/#donors">Donor lists</a></li>
+      <li><a href="/rent-roll/">Rent rolls</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/#contact">Contact</a></li>
     </ul>
