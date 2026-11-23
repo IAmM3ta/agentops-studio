@@ -12,6 +12,7 @@ This repository is the website only. It is plain HTML and CSS, served free from 
 | --- | --- |
 | `index.html` | The whole marketing page: hero, how it works, services and pricing, sample, FAQ, contact |
 | `404.html` | Page shown for unknown addresses |
+| `dashboard-intake/index.html` | Ops Dashboard Build intake (`/dashboard-intake/`): Starter $750 / Pro $1,500 pay buttons and a no-backend form that opens a prefilled email. In the sitemap |
 | `start/index.html` | Post-payment intake page (`/start/`): tells a paid Spreadsheet Rescue buyer what to send and how. `noindex`, not in the sitemap |
 | `css/styles.css` | All presentation. Mobile-first |
 | `assets/favicon.svg` | Icon used by modern browsers |
@@ -19,7 +20,7 @@ This repository is the website only. It is plain HTML and CSS, served free from 
 | `assets/apple-touch-icon.png` | Icon for phones saving the site to the home screen |
 | `assets/og.png` | Image used when the link is shared (1200×630) |
 | `favicon.ico` | Fallback icon requested at the site root |
-| `sitemap.xml` | Sitemap for the homepage |
+| `sitemap.xml` | Sitemap: homepage and `/dashboard-intake/` (`/start/` is noindex and left out) |
 | `robots.txt` | Crawler rules, points at the sitemap |
 | `CNAME` | Custom domain. The file contains exactly `agentops.studio` |
 | `.github/workflows/pages.yml` | Deploys the site to GitHub Pages on every push to `main` |
@@ -87,6 +88,13 @@ Package blurbs (what "a short stack" or "a larger desk" means) are the public de
 5. The homepage FAQ "I already paid. How do I send my file?" and the pricing footnote link to `/start/` for buyers who skip the redirect.
 
 Keep the scope line on `/start/` (one source, about 200 rows or 25 documents, 1 revision, no advice, no live QuickBooks/Xero edits) in sync with the Starter card and the private delivery playbook.
+
+## Ops Dashboard Build (added 2026-11-23)
+
+- Homepage section `#dashboards` (nav link "Dashboards"): Starter $750 (1 page, up to 8 KPIs) and Pro $1,500 (up to 3 pages, 20 KPIs, weekly auto-refresh); 5 to 7 business days, 1 revision, up to 3 client-exported sources, no calls.
+- Square links: Starter https://square.link/u/GcJ8BigP, Pro https://square.link/u/XYZYaCqO. Both redirect to `/start/`, which has an "Ops Dashboard" card pointing to `/dashboard-intake/`.
+- `/dashboard-intake/` cannot receive posts or files (GitHub Pages is static). On submit, an inline script builds a plain-text email to the intake address, and the buyer attaches exports in their mail app. Answers over about 1,700 characters are copied to the clipboard instead of going into the mailto URL.
+- Keep prices in three places in sync: the `#dashboards` cards, the JSON-LD offers "Ops Dashboard Build, Starter/Pro", and `/dashboard-intake/`.
 
 ## Deploy
 

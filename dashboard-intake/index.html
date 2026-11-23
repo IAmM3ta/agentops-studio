@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ops Dashboard Build intake — Agent Ops Studio</title>
+<meta name="description" content="Tell us about your business, your data and the numbers you want to see. Starter $750 or Pro $1,500.">
+<!-- Ops Dashboard Build intake page (live since 2026-11-23). Source draft: ledgerwright-marketing/packages/ops-dashboard-intake.html.
+     Pay buttons go to the two Square links below; both redirect to /start/ after checkout.
+     Keep prices and scope in sync with the homepage #dashboards section and its JSON-LD offers. -->
+<link rel="canonical" href="https://agentops.studio/dashboard-intake/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#9f2d20">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/styles.css">
+<style>
+  /* Form styles only; everything else comes from the site stylesheet. */
+  .intake-form { display: grid; gap: 22px; margin-top: 24px; max-width: 760px; }
+  .intake-form fieldset { border: 1px solid var(--line, #e4ddd2); border-top: 3px solid var(--red, #9f2d20); border-radius: 12px; padding: 16px 18px 18px; background: var(--white, #fff); }
+  .intake-form legend { font-weight: 700; padding: 0 6px; }
+  .intake-form label { display: block; font-weight: 600; margin: 12px 0 4px; }
+  .intake-form .hint { font-weight: 400; opacity: .75; font-size: .9rem; }
+  .intake-form input[type=text], .intake-form input[type=email], .intake-form input[type=date], .intake-form select, .intake-form textarea {
+    width: 100%; box-sizing: border-box; font: inherit; padding: 9px 10px; border: 1px solid #cfc6b8; border-radius: 8px; background: #fff; }
+  .intake-form textarea { min-height: 84px; resize: vertical; }
+  .intake-form .row { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .intake-form .choice { font-weight: 400; display: flex; gap: 8px; align-items: baseline; margin: 6px 0; }
+  .pay-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a class="brand" href="/">
+      <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="7" fill="currentColor"/>
+        <path d="M8 11.5h16M8 16h16M8 20.5h11" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span><span class="brand-name">Agent Ops Studio</span><span class="brand-sub">Memetic Media</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul>
+        <li><a href="/#dashboards">Dashboards</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Ops Dashboard Build · intake</p>
+      <h1>Tell us what you want to see every week.</h1>
+      <p class="lede">A Google Sheets model plus a Looker Studio dashboard, built from the exports you already have. Starter $750: 1 page, up to 8 KPIs. Pro $1,500: up to 3 pages, up to 20 KPIs, weekly auto-refresh. Delivered in 5 to 7 business days after this intake and your data arrive. One revision. No calls needed.</p>
+      <!-- Square payment links (verified 2026-11-23: enabled, $750 / $1,500, redirect to /start/). -->
+      <div class="pay-row">
+        <a class="btn" href="https://square.link/u/GcJ8BigP" target="_blank" rel="noopener noreferrer">Pay Starter $750<span class="sr-only">, opens Square in a new tab</span></a>
+        <a class="btn btn-ghost" href="https://square.link/u/XYZYaCqO" target="_blank" rel="noopener noreferrer">Pay Pro $1,500<span class="sr-only">, opens Square in a new tab</span></a>
+      </div>
+      <p class="fine">Not sure which? Send the form first and we will tell you which package fits before you pay.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="kicker">Intake form</p>
+      <h2>Six short sections</h2>
+      <p class="sub">When you press the button at the bottom, your email app opens with your answers filled in. Attach your exports to that email, then send it. Nothing is stored on this page.</p>
+
+      <!-- No backend: GitHub Pages cannot receive form posts or files. The script turns the answers
+           into a prefilled email to the intake address. Without JavaScript the form falls back to a
+           plain mailto with the answers as text (method=post + enctype=text/plain). -->
+      <form class="intake-form" id="intake" action="mailto:robert@agentops.studio?subject=Ops%20Dashboard%20intake" method="post" enctype="text/plain">
+        <fieldset>
+          <legend>1. Business basics</legend>
+          <div class="row">
+            <div><label for="biz">Business name</label><input type="text" id="biz" name="Business" required></div>
+            <div><label for="email">Your email <span class="hint">(and the Google account to own the dashboard, if different)</span></label><input type="email" id="email" name="Email" required></div>
+          </div>
+          <label for="what">What the business does, in a sentence</label>
+          <input type="text" id="what" name="Business does">
+          <label for="pkg">Package</label>
+          <select id="pkg" name="Package">
+            <option>Starter $750: 1 page, up to 8 KPIs</option>
+            <option>Pro $1,500: up to 3 pages, up to 20 KPIs, weekly auto-refresh</option>
+            <option>Not sure yet: recommend one</option>
+          </select>
+          <label for="decisions">Which decisions should the dashboard help with? <span class="hint">(1 to 3 sentences)</span></label>
+          <textarea id="decisions" name="Decisions"></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Data sources (up to 3)</legend>
+          <p class="hint">You export the data; we never log in to your systems. Examples: QuickBooks or Xero reports, Square, Shopify or Stripe sales exports, a job or lead spreadsheet.</p>
+          <div class="row">
+            <div><label for="s1">Source 1: what it is</label><input type="text" id="s1" name="Source 1"></div>
+            <div><label for="f1">Export format</label><select id="f1" name="Source 1 format"><option>CSV</option><option>Excel (.xlsx)</option><option>Google Sheet (shared)</option><option>Other</option></select></div>
+          </div>
+          <div class="row">
+            <div><label for="s2">Source 2 (optional)</label><input type="text" id="s2" name="Source 2"></div>
+            <div><label for="f2">Export format</label><select id="f2" name="Source 2 format"><option>None</option><option>CSV</option><option>Excel (.xlsx)</option><option>Google Sheet (shared)</option><option>Other</option></select></div>
+          </div>
+          <div class="row">
+            <div><label for="s3">Source 3 (optional)</label><input type="text" id="s3" name="Source 3"></div>
+            <div><label for="f3">Export format</label><select id="f3" name="Source 3 format"><option>None</option><option>CSV</option><option>Excel (.xlsx)</option><option>Google Sheet (shared)</option><option>Other</option></select></div>
+          </div>
+          <label for="range">Date range the exports cover</label>
+          <input type="text" id="range" name="Date range" placeholder="e.g. Jan 2025 to now">
+        </fieldset>
+
+        <fieldset>
+          <legend>3. KPIs you want</legend>
+          <label for="kpis">List them in priority order <span class="hint">(up to 8 for Starter, 20 for Pro). Add what "good" looks like if you know it.</span></label>
+          <textarea id="kpis" name="KPIs" placeholder="1. Gross margin by job, target 30%&#10;2. Unpaid invoices over 30 days&#10;3. Weekly sales by location"></textarea>
+          <label for="breakdowns">Filters or breakdowns <span class="hint">(location, job, product, salesperson, month...)</span></label>
+          <input type="text" id="breakdowns" name="Breakdowns">
+        </fieldset>
+
+        <fieldset>
+          <legend>4. Who uses it</legend>
+          <label for="users">Who will look at it, and how often?</label>
+          <input type="text" id="users" name="Users" placeholder="e.g. owner weekly on a phone, office manager daily on a laptop">
+          <label class="choice"><input type="checkbox" name="Needs phone view" value="yes"> Must read well on a phone</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>5. Refresh</legend>
+          <label class="choice"><input type="radio" name="Refresh" value="One-time snapshot" checked> One-time snapshot is fine (Starter)</label>
+          <label class="choice"><input type="radio" name="Refresh" value="Weekly auto-refresh"> Weekly auto-refresh (Pro): I will drop a new export into a shared Google Drive folder or Sheet each week</label>
+          <label for="who-refresh">If weekly: who drops the new exports, and on what day?</label>
+          <input type="text" id="who-refresh" name="Refresh owner">
+        </fieldset>
+
+        <fieldset>
+          <legend>6. Deadline and anything else</legend>
+          <div class="row">
+            <div><label for="deadline">Need it by</label><input type="date" id="deadline" name="Deadline"></div>
+            <div><label for="brand">Brand color or logo <span class="hint">(optional)</span></label><input type="text" id="brand" name="Brand"></div>
+          </div>
+          <label for="notes">Anything else</label>
+          <textarea id="notes" name="Notes"></textarea>
+          <label class="choice"><input type="checkbox" name="Acknowledged" value="yes" required> I understand this is a reporting build, not accounting or tax advice; you will not log in to my live systems; one revision is included.</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your files</legend>
+          <p><strong>Attach your exports to the email that opens next.</strong> Files too big to attach (over about 20 MB)? Put a Google Drive, Dropbox or OneDrive share link in the email with view access for robert@agentops.studio. Remove Social Security numbers, full card or bank numbers and passwords first.</p>
+        </fieldset>
+
+        <div><button class="btn" type="submit">Open my email with these answers</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="copyright">© 2026 Memetic Media · Agent Ops Studio</p>
+    <p class="legal"><a href="mailto:robert@agentops.studio">robert@agentops.studio</a></p>
+  </div>
+</footer>
+
+<script>
+// Build a readable plain-text email from the answers and open it in the visitor's mail app.
+// mailto cannot carry attachments, so the visitor attaches files in their mail app before sending.
+document.getElementById('intake').addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (!this.reportValidity()) return;
+  var lines = [], fd = new FormData(this);
+  fd.forEach(function (v, k) { if (String(v).trim()) lines.push(k + ': ' + v); });
+  lines.push('', '(Attach your exports to this email before sending.)');
+  var biz = fd.get('Business') || '';
+  var subject = 'Ops Dashboard intake - ' + biz;
+  // Keep the URL under ~1,800 characters; some mail apps truncate longer mailto links.
+  var body = lines.join('\n');
+  if (body.length > 1700) {
+    // Too long for a reliable mailto: copy everything to the clipboard and ask for a paste.
+    var full = body;
+    body = '(My answers were long, so they are on my clipboard. Pasting them below.)\n\n';
+    if (navigator.clipboard) navigator.clipboard.writeText(full);
+    alert('Your answers are long, so they were copied to your clipboard. Paste them into the email that opens, then attach your files.');
+  }
+  location.href = 'mailto:robert@agentops.studio?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
