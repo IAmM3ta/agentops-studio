@@ -32,10 +32,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # Split into build + deploy (GitHub's reference layout). Uploading and deploying in
+  # separate jobs gives the artifact time to register; deploying in the same job
+  # intermittently failed with 'No artifacts named "github-pages" were found'.
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -54,6 +54,24 @@ jobs:
           # action. CNAME is not a dotfile, so the custom domain file is included.
           path: .
 
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url || steps.retry.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+
+      # One retry after a pause, in case the artifact is still being indexed.
+      - name: Wait before retry
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy to GitHub Pages (retry)
+        id: retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v5

@@ -1,6 +1,7 @@
 # Changelog
 
 ## 2026-11-23
+- CI: Pages workflow split into build + deploy jobs with one delayed retry, fixing intermittent "No artifacts named github-pages" deploy failures.
 - Fix: founding-offer note text uses solid muted color instead of opacity, so the #upkeep link passes WCAG AA contrast.
 
 - Footer: "Part of Memetic Media" plus links to the Memetic Media network sites (Memetic Media, LedgerWright templates, Memetic Visuals, LiTHOS, MORPHOS) on the homepage, `/start/` and `/dashboard-intake/`. JSON-LD `parentOrganization` gains the Memetic Media URL.
