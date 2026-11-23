@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-23
+
+- New post-payment intake page at `/start/` (`start/index.html`, `noindex`). It tells a paid Spreadsheet Rescue buyer exactly what to send, by email to robert@agentops.studio with a prefilled subject and four questions, what happens next, and the Starter scope (one source, about 200 rows or 25 documents, one revision, not advice, no live QuickBooks/Xero edits). Square's "redirect after checkout" setting should point here (see README, "Payment-to-delivery flow").
+- Homepage: new first FAQ "I already paid. How do I send my file?" and a pricing-footnote link, both to `/start/`.
+- Homepage: Standard, Premium, and retainer buttons changed from "Pay / Book" (which opened the $150 Starter checkout and could charge the wrong amount) to "Get a quote" email links. Their JSON-LD offer `url` now points at `/#pricing` instead of the $150 Square link. The Starter, hero, and header Pay / Book buttons still go to the Square link.
+
 ## 2026-11-22
 - Public name shortened from "Robert F. Thomas" to "Robert Thomas" across the site (meta author, schema.org, copy, footer) at Robert's request.
 

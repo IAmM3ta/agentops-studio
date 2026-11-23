@@ -62,7 +62,7 @@
       "name": "Standard",
       "price": "350",
       "priceCurrency": "USD",
-      "url": "https://square.link/u/rX4tuObB",
+      "url": "https://agentops.studio/#pricing",
       "availability": "https://schema.org/InStock",
       "description": "A working job-cost file from several jobs worth of bills, receipts, and spreadsheets."
     },
@@ -71,14 +71,14 @@
       "name": "Premium",
       "price": "750",
       "priceCurrency": "USD",
-      "url": "https://square.link/u/rX4tuObB",
+      "url": "https://agentops.studio/#pricing",
       "availability": "https://schema.org/InStock",
       "description": "A larger or messier desk, with every change labeled and every doubtful figure flagged."
     },
     {
       "@type": "Offer",
       "name": "Monthly retainer",
-      "url": "https://square.link/u/rX4tuObB",
+      "url": "https://agentops.studio/#pricing",
       "availability": "https://schema.org/InStock",
       "description": "Monthly retainer, from $750/mo, ask for a quote.",
       "priceSpecification": {
@@ -190,7 +190,9 @@
   <!--
     PRICES — keep this section, the footer notes, and the JSON-LD block in the head in sync.
     Starter $150 · Standard $350 · Premium $750 · Monthly retainer from $750/mo.
-    Every "Pay / Book" link points at the same Square page:
+    Every "Pay / Book" link (Starter, hero, header) points at the same Square page.
+    Since 2026-11-23 Standard, Premium and retainer use "Get a quote" mailto buttons instead,
+    because this link only charges the $150 Starter. After checkout Square should redirect to /start/.
     https://square.link/u/rX4tuObB
     That page currently checks out Spreadsheet Rescue (Starter) at $150,
     delivered within 48 hours. If a tier gets its own payment link, replace that href
@@ -235,7 +237,8 @@
           <p class="tier-name">Working file</p>
           <p class="price"><span class="currency">$</span>350</p>
           <p class="tier-copy">Several jobs, or a month of bills, receipts, and spreadsheets, brought into one job-cost file. Same tags, plus a report of anything that was unclear.</p>
-          <a class="btn" href="https://square.link/u/rX4tuObB" target="_blank" rel="noopener noreferrer">Pay / Book<span class="sr-only"> Standard, opens Square in a new tab</span></a>
+          <!-- 2026-11-23: was Pay / Book to the $150 Square link, which would charge the wrong amount. Quote first. -->
+          <a class="btn" href="mailto:robert@agentops.studio?subject=Standard%20package%20quote">Get a quote<span class="sr-only"> for Standard by email</span></a>
         </article>
 
         <article class="tier">
@@ -243,7 +246,8 @@
           <p class="tier-name">Full pass</p>
           <p class="price"><span class="currency">$</span>750</p>
           <p class="tier-copy">A larger or messier desk. More files, mixed exports, and a closer pass: every change labeled, doubtful items flagged, ready for your bookkeeper to review.</p>
-          <a class="btn" href="https://square.link/u/rX4tuObB" target="_blank" rel="noopener noreferrer">Pay / Book<span class="sr-only"> Premium, opens Square in a new tab</span></a>
+          <!-- 2026-11-23: quote first; the only Square link charges the $150 Starter. -->
+          <a class="btn" href="mailto:robert@agentops.studio?subject=Premium%20package%20quote">Get a quote<span class="sr-only"> for Premium by email</span></a>
         </article>
       </div>
 
@@ -256,11 +260,11 @@
         </div>
         <div class="tier-actions">
           <a class="btn btn-light" href="mailto:robert@agentops.studio?subject=Monthly%20retainer%20quote">Ask for a quote<span class="sr-only"> by email to robert@agentops.studio</span></a>
-          <a class="btn btn-on-dark" href="https://square.link/u/rX4tuObB" target="_blank" rel="noopener noreferrer">Pay / Book<span class="sr-only"> monthly retainer, opens Square in a new tab</span></a>
+          <!-- 2026-11-23: removed Pay / Book here; it pointed at the $150 Starter checkout. -->
         </div>
       </article>
 
-      <p class="footnote">Pay / Book opens our Square page. That page checks out Spreadsheet Rescue, the Starter package, at $150. For Standard, Premium, or a monthly retainer, email <a href="mailto:robert@agentops.studio">robert@agentops.studio</a> first and we will confirm the amount before you pay.</p>
+      <p class="footnote">Pay / Book opens our Square page, which checks out Spreadsheet Rescue, the Starter package, at $150. After paying you land on <a href="/start/">the send-your-file page</a>. For Standard, Premium, or a monthly retainer, email <a href="mailto:robert@agentops.studio">robert@agentops.studio</a> first and we will confirm the amount before you pay.</p>
     </div>
   </section>
 
@@ -458,6 +462,11 @@
       <p class="kicker">FAQ</p>
       <h2>Questions worth asking before you send a file</h2>
       <div class="faq-list">
+        <!-- Added 2026-11-23: catches buyers who paid but closed the Square confirmation page. -->
+        <details>
+          <summary>I already paid. How do I send my file?</summary>
+          <p>Follow the steps on <a href="/start/">the send-your-file page</a>: email the file to robert@agentops.studio with the name on your Square receipt in the subject line. The 48-hour clock starts when the file arrives.</p>
+        </details>
         <details>
           <summary>How fast is the turnaround?</summary>
           <p>Spreadsheet Rescue, the Starter package, comes back within 48 hours of receiving the file. That is the turnaround on the Square checkout. Standard, Premium, and a retainer are timed when we confirm the price, before you pay. A person reviews every delivery, so the clock includes that review.</p>

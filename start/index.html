@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Send your file: Spreadsheet Rescue intake — Agent Ops Studio</title>
+<meta name="description" content="Paid for a Spreadsheet Rescue? Here is exactly what to send and how. The 48-hour clock starts when your file arrives.">
+<!-- Post-payment page: Square redirects buyers here after checkout. Kept out of search results. -->
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#9f2d20">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://agentops.studio/start/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!--
+  INTAKE PAGE (added 2026-11-23)
+  Purpose: the one place a paid Spreadsheet Rescue buyer is told what to send.
+  How buyers get here:
+    1. Square payment link "Redirect to a website after checkout" -> https://agentops.studio/start/
+       (set in Square Dashboard > Payments > Payment links > Edit; see README "Payment-to-delivery flow").
+    2. The "Already paid?" FAQ entry on the homepage.
+  Why email and not an upload form: GitHub Pages is static and cannot receive files, and a hosted
+  form service would mean a new account. Email to robert@agentops.studio needs nothing new.
+  Keep the scope numbers here in sync with ledgerwright-marketing/packages/spreadsheet-rescue.md
+  and with the Starter card on the homepage.
+  Links are root-absolute so the page works at /start/ and /start/index.html.
+-->
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a class="brand" href="/">
+      <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="7" fill="currentColor"/>
+        <path d="M8 11.5h16M8 16h16M8 20.5h11" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span>
+        <span class="brand-name">Agent Ops Studio</span>
+        <span class="brand-sub">Memetic Media</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Spreadsheet Rescue · next step</p>
+      <h1>Thanks for your order. Now send the file.</h1>
+      <p class="lede">Your 48-hour turnaround starts when your file arrives. One email does it: attach the file, answer four short questions, send. You will get a reply confirming we have it.</p>
+      <div class="missing-actions">
+        <!-- Prefilled subject and body so every intake email has the same shape (easy to find and to process). -->
+        <a class="btn" href="mailto:robert@agentops.studio?subject=Rescue%20intake%20-%20%5Bname%20on%20your%20Square%20receipt%5D&amp;body=Name%20on%20the%20Square%20receipt%3A%20%0A%0A1.%20What%20is%20in%20the%20file%20(bills%2C%20receipts%2C%20customer%20or%20donor%20list%2C%20other)%3F%20%0A%0A2.%20What%20should%20the%20finished%20file%20let%20you%20do%3F%20%0A%0A3.%20Columns%2C%20jobs%20or%20categories%20to%20use%20(if%20you%20have%20them)%3A%20%0A%0A4.%20Anything%20we%20should%20NOT%20change%3A%20%0A%0A(Attach%20the%20file%20before%20sending.)">Email your file to robert@agentops.studio</a>
+        <a class="btn btn-ghost" href="#what-to-send">What to send</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="what-to-send">
+    <div class="wrap">
+      <p class="kicker">Checklist</p>
+      <h2>What to send</h2>
+      <ol class="steps">
+        <li class="step"><h3>The file</h3><p>Attach an Excel (.xlsx), CSV, or a Google Sheets export (File &gt; Download &gt; Microsoft Excel). For bills and receipts, PDFs with selectable text or pasted email text work. Too big to attach? Put a share link in the email with view access for robert@agentops.studio.</p></li>
+        <li class="step"><h3>Your name on the receipt</h3><p>Put the name on your Square receipt in the subject line so we can match your payment.</p></li>
+        <li class="step"><h3>Four short answers</h3><p>What is in the file. What the finished file should let you do. Any columns, jobs, or categories to use. Anything we should not change. The email button above fills these in for you.</p></li>
+        <li class="step"><h3>Take out private numbers</h3><p>Remove Social Security numbers, full card or bank numbers, passwords, and tax-return packets. Names, vendors, dates, and amounts are what the cleanup needs.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="kicker">What happens next</p>
+      <h2>From your email to your clean file</h2>
+      <ol class="steps">
+        <li class="step"><h3>We confirm</h3><p>A reply confirms we have the file and the time it is due back. If it is bigger than the Starter package, we say so before any work starts.</p></li>
+        <li class="step"><h3>We clean it</h3><p>AI-assisted cleanup, then a person reviews every flagged row before anything is sent back.</p></li>
+        <li class="step"><h3>You get it back</h3><p>Within 48 hours: the cleaned file as Excel and CSV, plus a short report of every change and every item that needs your eye.</p></li>
+        <li class="step"><h3>One revision</h3><p>Reply within 7 days if we misread or mistagged something that was in the file, and we fix it.</p></li>
+      </ol>
+      <!-- Scope: keep in sync with packages/spreadsheet-rescue.md (about 200 rows or 25 documents, one source). -->
+      <p class="footnote">The Starter package covers one source file: up to about 200 rows, or up to 25 bills or receipts. It is a data cleanup, not bookkeeping, tax, or legal advice, and we do not log in to or edit QuickBooks, Xero, or other live systems. Working copies are deleted within 14 days of delivery, or sooner if you ask.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="copyright">© 2026 Memetic Media · Agent Ops Studio</p>
+    <p class="legal"><a href="mailto:robert@agentops.studio">robert@agentops.studio</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -12,6 +12,7 @@ This repository is the website only. It is plain HTML and CSS, served free from 
 | --- | --- |
 | `index.html` | The whole marketing page: hero, how it works, services and pricing, sample, FAQ, contact |
 | `404.html` | Page shown for unknown addresses |
+| `start/index.html` | Post-payment intake page (`/start/`): tells a paid Spreadsheet Rescue buyer what to send and how. `noindex`, not in the sitemap |
 | `css/styles.css` | All presentation. Mobile-first |
 | `assets/favicon.svg` | Icon used by modern browsers |
 | `assets/favicon-32.png` | PNG icon |
@@ -59,7 +60,7 @@ Those numbers appear three times. Update all of them together:
 https://square.link/u/rX4tuObB
 ```
 
-Search for `square.link` and replace each one if the link changes. As of 2026-11-21 that Square page checks out **Spreadsheet Rescue at $150**, described there as one messy spreadsheet delivered within 48 hours. The Starter card and the turnaround answer repeat that 48-hour promise. If the Square offer changes, update the Starter card, the FAQ turnaround answer, the pricing footnote, and this README together. Standard, Premium, and the retainer tell the visitor to email first so the amount can be confirmed before they pay.
+Search for `square.link` and replace each one if the link changes. As of 2026-11-21 that Square page checks out **Spreadsheet Rescue at $150**, described there as one messy spreadsheet delivered within 48 hours. The Starter card and the turnaround answer repeat that 48-hour promise. If the Square offer changes, update the Starter card, the FAQ turnaround answer, the pricing footnote, and this README together. Standard, Premium, and the retainer tell the visitor to email first so the amount can be confirmed before they pay. Since 2026-11-23 their buttons are "Get a quote" mailto links, and their JSON-LD `url` points at `/#pricing`, because the one Square link only charges the $150 Starter.
 
 **Contact.** The only public email is `robert@agentops.studio`. Search for `mailto:` in both HTML files.
 
@@ -76,6 +77,15 @@ Search for `square.link` and replace each one if the link changes. As of 2026-11
 Do not add a phone number, a street address, testimonials, client names, statistics, or certifications. Do not add third-party scripts, fonts, or trackers. The page loads one stylesheet and no JavaScript on purpose.
 
 Package blurbs (what "a short stack" or "a larger desk" means) are the public description of the catalog. If the real scope of a tier is different, edit that card's paragraph. The page already says odd files are quoted before payment.
+
+## Payment-to-delivery flow (added 2026-11-23)
+
+1. Buyer clicks **Pay / Book** and pays $150 on the Square payment link.
+2. Square redirects to **`https://agentops.studio/start/`**. This needs one setting in Square Dashboard: Payments > Payment links > (the Spreadsheet Rescue link) > Edit > *Redirect to a website after checkout* = `https://agentops.studio/start/`. Square's help notes some link types only offer the redirect in the Dashboard; if the existing link does not show the toggle, create a new "Collect a payment" link for $150 with the redirect on, then replace every `square.link` URL in this repo.
+3. `/start/` tells the buyer to email the file to `robert@agentops.studio` with a prefilled subject (`Rescue intake - <name on Square receipt>`) and four questions. GitHub Pages cannot accept uploads, which is why intake is email, not a form.
+4. The homepage FAQ "I already paid. How do I send my file?" and the pricing footnote link to `/start/` for buyers who skip the redirect.
+
+Keep the scope line on `/start/` (one source, about 200 rows or 25 documents, 1 revision, no advice, no live QuickBooks/Xero edits) in sync with the Starter card and the private delivery playbook.
 
 ## Deploy
 
