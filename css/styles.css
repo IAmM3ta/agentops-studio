@@ -1140,3 +1140,7 @@ section {
 .tier-extras span {
   color: var(--muted);
 }
+
+/* Free teardown section (2026-11-24) */
+.teardown-list { margin: 1rem 0 1.25rem; padding-left: 1.2rem; max-width: 60rem; }
+.teardown-list li { margin: .4rem 0; }
