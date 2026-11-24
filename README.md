@@ -100,7 +100,7 @@ Keep the scope line on `/start/` (one source, about 200 rows or 25 documents, 1 
 ## Memetic Media network and LedgerWright templates (added 2026-11-23)
 
 - Footer on every page (`index.html`, `start/`, `dashboard-intake/`): "Agent Ops Studio is part of Memetic Media" plus a `footer-links` list to Memetic Media, LedgerWright templates, Memetic Visuals, LiTHOS and MORPHOS. Keep it in sync with `NET` in `memetic-media/builder/build.py`. When memeticmedia.studio is bought, replace the `iamm3ta.github.io/memetic-media/` URLs.
-- `index.html#templates` (between `#dashboards` and `#sample`): teaser for the do-it-yourself templates (Cash Flow $14, Bundle $24, Job-Cost $14). Buttons go to https://iamm3ta.github.io/ledgerwright-templates/ (`#cashflow`, `#bundle`, `#jobcost`), where checkout lives, so this section does not change when Gumroad links go live.
+- `index.html#templates` (between `#dashboards` and `#sample`): teaser for the do-it-yourself templates (Cash Flow $14, Bundle $24, Job-Cost $14). Each card has a "Buy on Gumroad" button (Cash Flow https://ledgerwright.gumroad.com/l/cashflow-tracker, Bundle https://ledgerwright.gumroad.com/l/ledgerwright-bundle, Job-Cost https://ledgerwright.gumroad.com/l/job-cost-tracker) and keeps the "See the … tracker" link to https://iamm3ta.github.io/ledgerwright-templates/. These are not the Square Spreadsheet Rescue / dashboard links; do not place template Gumroad buttons next to those Square checkouts. Prices stay $14 / $24 / $14. GitHub Pages publishes only from `main`.
 - JSON-LD `parentOrganization` now carries the Memetic Media URL.
 - Source of these snippets: `/workspace/memetic-sites/agentops-patch.md`.
 
