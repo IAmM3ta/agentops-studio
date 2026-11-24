@@ -1,5 +1,40 @@
 # Changelog
 
+## Scope
+
+Agent Ops Studio is the Memetic Media sub-brand for LedgerWright templates, Spreadsheet Rescue, and custom business dashboards, operated by Robert Thomas. Constraints: $0 spend freeze (free Vercel and Neon tiers only; no paid services, domains, or API runs without Robert's OK). Cold email is on hold.
+
+## 2026-11-23
+
+### Added
+
+- LedgerWright Gumroad store is live (seller: [ledgerwright](https://ledgerwright.gumroad.com)):
+  - [Cash Flow Tracker](https://ledgerwright.gumroad.com/l/cashflow-tracker), $14
+  - [Job-Cost Tracker](https://ledgerwright.gumroad.com/l/job-cost-tracker), $14
+  - [LedgerWright Bundle](https://ledgerwright.gumroad.com/l/ledgerwright-bundle), $24
+- Payouts are set up on Gumroad.
+- "Buy on Gumroad" buttons are live on [agentops.studio](https://agentops.studio) (`#templates`) and the [LedgerWright templates page](https://iamm3ta.github.io/ledgerwright-templates/). Placeholder coming-soon notes and mailto links were replaced; JSON-LD offers point to Gumroad.
+
+### Existing
+
+- Square checkout links on [agentops.studio](https://agentops.studio) for Spreadsheet Rescue and dashboard builds: $150, $295 Founding Bundle (through Dec 1), $250 deposit, $750, $1,500.
+
+### Changed
+
+- Upwork profile completeness went from 60% to 65% (languages, four skills, and a portfolio item; rate remains $85/hr). Two catalog projects are approved and live: Bill tagging ($150 / $350 / $750) and 500-row cleanup ($150). No Connects were bought.
+
+### In progress
+
+- LedgerWright Autopilot MVP is in private preview (116/116 tests). `ledgerwright-desk` PR #1 is unmerged. Launch still needs an xAI key and a payment gate.
+
+### Planned
+
+- Fiverr and Contra listings, Upwork job watching, and daily revenue routines.
+
+### Out of scope
+
+- No projects have been paused or killed. Portfolio park/kill decisions remain pending Robert's review.
+
 ## 2026-11-23
 - Staged (not live until merged to `main`): `#templates` cards gain a "Buy on Gumroad" button next to the existing "See the … tracker" link (Cash Flow $14, Bundle $24, Job-Cost $14). Square Pay / Book links for Spreadsheet Rescue and dashboards are unchanged — those are different products. Prices unchanged.
 - New page `/rent-roll/` for property managers: what the cleanup checks (rent vs paid per unit, duplicate units and tenants shown and never merged, figures read only from their own column, hedged or two-figure cells left blank, leases kept as written, ended leases marked expired rather than extended), what to send and what comes back (CSV, Excel, an "import ready" column, a short report), a fictional before/after table and three example cards labeled SAMPLE, pricing (Starter $150 by Square, Standard $350, Premium $750, retainer from $750/mo, email first), and contact. The copy matches the LedgerWright `rentroll` profile built today. Homepage: new `#rentroll` teaser after `#donors`, a "Do you clean rent rolls?" FAQ, a "Rent rolls" footer link, and a meta description that mentions rent rolls. `sitemap.xml` adds `/rent-roll/` (lastmod 2026-11-23).
