@@ -588,6 +588,13 @@ section {
   margin-bottom: 16px;
 }
 
+/* Stack the Gumroad buy button above the "See the tracker" link on #templates cards. */
+.tier .actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .tier-retainer {
   margin-top: 14px;
   background: var(--white);

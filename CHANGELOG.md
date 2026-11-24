@@ -1,6 +1,7 @@
 # Changelog
 
 ## 2026-11-23
+- Staged (not live until merged to `main`): `#templates` cards gain a "Buy on Gumroad" button next to the existing "See the … tracker" link (Cash Flow $14, Bundle $24, Job-Cost $14). Square Pay / Book links for Spreadsheet Rescue and dashboards are unchanged — those are different products. Prices unchanged.
 - New page `/rent-roll/` for property managers: what the cleanup checks (rent vs paid per unit, duplicate units and tenants shown and never merged, figures read only from their own column, hedged or two-figure cells left blank, leases kept as written, ended leases marked expired rather than extended), what to send and what comes back (CSV, Excel, an "import ready" column, a short report), a fictional before/after table and three example cards labeled SAMPLE, pricing (Starter $150 by Square, Standard $350, Premium $750, retainer from $750/mo, email first), and contact. The copy matches the LedgerWright `rentroll` profile built today. Homepage: new `#rentroll` teaser after `#donors`, a "Do you clean rent rolls?" FAQ, a "Rent rolls" footer link, and a meta description that mentions rent rolls. `sitemap.xml` adds `/rent-roll/` (lastmod 2026-11-23).
 - CI: Pages workflow split into build + deploy jobs with one delayed retry, fixing intermittent "No artifacts named github-pages" deploy failures.
 - Fix: founding-offer note text uses solid muted color instead of opacity, so the #upkeep link passes WCAG AA contrast.
