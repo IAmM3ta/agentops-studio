@@ -4,6 +4,10 @@
 
 Agent Ops Studio is the Memetic Media sub-brand for LedgerWright templates, Spreadsheet Rescue, and custom business dashboards, operated by Robert Thomas. Constraints: $0 spend freeze (free Vercel and Neon tiers only; no paid services, domains, or API runs without Robert's OK). Cold email is on hold.
 
+## 2026-11-25
+- New high-intent page `/excel-formula-fix/` ("Formula broken? See it fixed before you pay"): pay-after-preview flow (PREVIEW screenshots first, then the existing $150 Starter Square link), free 20-row fix via prefilled email, $14/$24 Gumroad trackers for visitors who don't need a fix, Service + FAQPage JSON-LD. Linked from the homepage teardown section and footer; added to `sitemap.xml`.
+- IndexNow key file at the site root so new URLs can be submitted to Bing/Yandex.
+
 ## 2026-11-24
 
 ### Changed
