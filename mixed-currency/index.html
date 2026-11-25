@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mixed-Currency Invoice Cleanup: USD, EUR, GBP, CAD Totals Kept Separate | Agent Ops Studio</title>
+<meta name="description" content="Supplier bills in USD, EUR, GBP and CAD cleaned into one CSV and Excel file. Open balances totaled per currency, never converted, never added together. Fictional before/after sample. From $150.">
+<!--
+  Mixed-currency invoices page (added 2026-11-25). Every claim here must match what the
+  LedgerWright core invoice pipeline actually does (ledgerwright-desk: ledgerwright.py
+  per_currency / money_by_currency / figures_text, shipped 2026-11-24). Open, billed and
+  credit totals are kept per currency code (USD first, then A-Z), nothing is converted, and no
+  cross-currency total is printed. The sample rows are copied from the fictional SAMPLE file
+  samples/currency_invoices.txt and its stand-in output sample_output/currency/.
+  Do NOT claim: exchange-rate conversion, FX gain/loss, multi-currency accounting entries,
+  pushing to QuickBooks/Xero, or reading scanned images. Known limit: a bill whose currency
+  isn't written is treated as USD, so the copy asks people to check the currency column.
+  Prices must match the homepage #pricing cards and JSON-LD: Starter $150 (the only amount the
+  Square link charges), Standard $350, Premium $750, retainer from $750/mo (email first).
+-->
+<meta name="author" content="Robert Thomas">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#9f2d20">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://agentops.studio/mixed-currency/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Agent Ops Studio">
+<meta property="og:url" content="https://agentops.studio/mixed-currency/">
+<meta property="og:title" content="Mixed-Currency Invoice Cleanup: USD, EUR, GBP, CAD Totals Kept Separate | Agent Ops Studio">
+<meta property="og:description" content="Open balances totaled per currency, never converted, never added together. A fictional before/after sample, CSV and Excel from $150.">
+<meta property="og:image" content="https://agentops.studio/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Agent Ops Studio. Messy files in, a clean file out. LedgerWright, Spreadsheet Rescue.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mixed-Currency Invoice Cleanup: USD, EUR, GBP, CAD Totals Kept Separate | Agent Ops Studio">
+<meta name="twitter:description" content="Open balances totaled per currency, never converted, never added together. A fictional before/after sample, CSV and Excel from $150.">
+<meta name="twitter:image" content="https://agentops.studio/assets/og.png">
+<meta name="twitter:image:alt" content="Agent Ops Studio. Messy files in, a clean file out. LedgerWright, Spreadsheet Rescue.">
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Same header as the homepage. Nav targets are root-absolute. -->
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a class="brand" href="/">
+      <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="7" fill="currentColor"/>
+        <path d="M8 11.5h16M8 16h16M8 20.5h11" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span>
+        <span class="brand-name">Agent Ops Studio</span>
+        <span class="brand-sub">Memetic Media</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="#sample">Currency sample</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-small header-cta" href="https://square.link/u/rX4tuObB" target="_blank" rel="noopener noreferrer">Pay / Book<span class="sr-only">, opens the Square payment page for the $150 Starter in a new tab</span></a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="hero">
+    <div class="wrap">
+      <p class="kicker">LedgerWright · Spreadsheet Rescue · Bills in more than one currency</p>
+      <h1>Bills in dollars, euros, and pounds. One clean file, and a total for each currency.</h1>
+      <p class="lede">Pay freelancers or suppliers abroad and the bills tracker ends up with one "Total" cell that adds 950 euros to 320 dollars. We clean the bills you already have into one CSV and Excel file. Open, billed, and credit totals are kept separate for each currency. Nothing is converted, and EUR is never added to USD. Robert Thomas reviews every file before it comes back.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://square.link/u/rX4tuObB" target="_blank" rel="noopener noreferrer">Pay / Book $150<span class="sr-only">, Starter, opens the Square payment page in a new tab</span></a>
+        <a class="btn btn-ghost" href="#sample">See the sample</a>
+      </div>
+      <p class="fine">A short stack of bills fits the $150 Starter. CSV and Excel back within 48 hours of receiving the files.</p>
+    </div>
+  </header>
+
+  <section class="band" id="what">
+    <div class="wrap">
+      <p class="kicker">What the cleanup does</p>
+      <h2>Each currency is totaled on its own</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>Totals you can trust</h3>
+          <ul class="mark-list">
+            <li>Open balances, billed amounts, and credits are each summed per currency: USD first, then the others.</li>
+            <li>No exchange rates and no converted grand total. 950.00 EUR stays 950.00 EUR.</li>
+            <li>"$612.50 CAD" is booked as Canadian dollars. A $ sign alone doesn't make a bill USD.</li>
+            <li>Credit memos stay in their own currency and are subtracted only from that currency's total.</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h3>Bills, as written</h3>
+          <ul class="mark-list">
+            <li>European amounts like "1.450,00" are read as 1,450.00, and the row says so.</li>
+            <li>A balance worked out from total minus paid is labeled as computed.</li>
+            <li>A rate or tax that isn't written stays blank. It is not back-filled to make a total add up.</li>
+            <li>Every row has a currency column, so a bill with no currency written can be checked before you rely on it.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>What you send</h3>
+          <ul class="mark-list">
+            <li>Bills, invoices, receipts, and credit memos pasted as text, or a CSV or Excel tracker</li>
+            <li>Any mix of USD, EUR, GBP, CAD, or other currencies with a written currency code or symbol</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h3>What you get back</h3>
+          <ul class="mark-list">
+            <li>A CSV file and an Excel file, one row per bill line, with vendor, number, date, status, currency, amounts, and flags</li>
+            <li>A short report: what's still open per currency, the credits to apply, and anything that needs a person</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sample">
+    <div class="wrap">
+      <p class="kicker">Sample · Bills in four currencies</p>
+      <h2>A fictional payables pile, before and after</h2>
+      <p class="sub">SAMPLE: six made-up documents from a small design studio, run through the same invoice rules we use on client files. Vendors, invoice numbers, and amounts are fictional. Not a client file. The headline: <strong>6 documents, $320.00, 612.50 CAD, 950.00 EUR, and 780.00 GBP still open.</strong></p>
+      <p class="scroll-hint">On a small screen, swipe the table sideways to read every column.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Sample bills in four currencies. Fictional. Scroll sideways for more columns.">
+        <table class="sheet">
+          <caption>SAMPLE rows, fictional. Not a client file.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Before (as typed)</th>
+              <th scope="col">Vendor</th>
+              <th scope="col">Currency</th>
+              <th scope="col" class="num">Total</th>
+              <th scope="col" class="num">Open</th>
+              <th scope="col">Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lumen Stock Photo · LS-2201 · "$320.00 -- not paid yet"</td>
+              <td>Lumen Stock Photo</td>
+              <td>USD</td>
+              <td class="num">320.00</td>
+              <td class="num">320.00</td>
+              <td>Balance computed from total minus paid.</td>
+            </tr>
+            <tr>
+              <td>Atelier Nordlicht GmbH · "Gesamtbetrag: 1.450,00 EUR" · "Anzahlung erhalten: 500,00 EUR"</td>
+              <td>Atelier Nordlicht GmbH</td>
+              <td>EUR</td>
+              <td class="num">1,450.00</td>
+              <td class="num">950.00</td>
+              <td><span class="flag-word">Note.</span> European number format read as 1,450.00 EUR. Balance computed.</td>
+            </tr>
+            <tr>
+              <td>Fernway Studios Ltd · "motion edit, 3 days GBP 780.00 total"</td>
+              <td>Fernway Studios Ltd</td>
+              <td>GBP</td>
+              <td class="num">780.00</td>
+              <td class="num">780.00</td>
+              <td><span class="flag-word">Flag.</span> Day rate not written. Only the stated total is used.</td>
+            </tr>
+            <tr>
+              <td>Northline Print Co. · "$612.50 CAD" · "pls pay in CAD, not USD"</td>
+              <td>Northline Print Co.</td>
+              <td>CAD</td>
+              <td class="num">612.50</td>
+              <td class="num">612.50</td>
+              <td><span class="flag-word">Note.</span> The $ sign is Canadian dollars, not USD.</td>
+            </tr>
+            <tr>
+              <td>CREDIT MEMO · Lumen Stock Photo · "credit (45.00) USD"</td>
+              <td>Lumen Stock Photo</td>
+              <td>USD</td>
+              <td class="num">-45.00</td>
+              <td class="num">-45.00</td>
+              <td>Credit stored as a negative balance. Apply it to Lumen.</td>
+            </tr>
+            <tr>
+              <td>Brightdesk · receipt BD-90412 · "$99.00 paid by card"</td>
+              <td>Brightdesk</td>
+              <td>USD</td>
+              <td class="num">99.00</td>
+              <td class="num">0.00</td>
+              <td>Paid.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="examples">
+        <article class="example">
+          <h3>The total a spreadsheet would show</h3>
+          <p class="label">Before</p>
+          <p class="raw">=SUM(open) → 2,662.50</p>
+          <p class="label">After</p>
+          <p class="clean">Open $320.00, 612.50 CAD, 950.00 EUR, and 780.00 GBP</p>
+          <p class="why">2,662.50 isn't an amount in any currency. The report never prints a number like that.</p>
+        </article>
+        <article class="example">
+          <h3>Billed, open, and credits</h3>
+          <p class="label">Report line</p>
+          <p class="clean">Billed $374.00, 612.50 CAD, 1,450.00 EUR, and 780.00 GBP. Open $320.00, 612.50 CAD, 950.00 EUR, and 780.00 GBP. Credits $45.00.</p>
+          <p class="why">The USD billed figure already nets the $45.00 credit memo. Every other currency is left alone.</p>
+        </article>
+        <article class="example">
+          <h3>What to do next</h3>
+          <p class="label">Report says</p>
+          <p class="clean">Open balances are in more than one currency. Each is totaled on its own; nothing was converted. Apply the credit from Lumen Stock Photo.</p>
+          <p class="why">You pay each bill in the currency it was billed in. You choose the exchange rate, not the cleanup.</p>
+        </article>
+      </div>
+      <p class="footnote">We do not convert currencies, apply exchange rates, or post entries to your accounting software. If a bill doesn't show its currency, check the currency column on that row before you rely on the total.</p>
+    </div>
+  </section>
+
+  <section class="band" id="currency-pricing">
+    <div class="wrap">
+      <p class="kicker">Pricing</p>
+      <h2>Same catalog as every Spreadsheet Rescue</h2>
+      <ul class="mark-list">
+        <li><strong>Starter, $150:</strong> a short stack of bills or one messy tracker. Pay / Book checks out this package on Square, and the file comes back within 48 hours of arriving.</li>
+        <li><strong>Standard, $350:</strong> several months of bills or several trackers brought into one file. Email first; we confirm the amount before you pay.</li>
+        <li><strong>Premium, $750:</strong> a larger or messier pile and a closer pass. Email first.</li>
+        <li><strong>Monthly retainer, from $750/mo:</strong> the same cleanup on a schedule, for example before each month-end. Ask for a quote.</li>
+      </ul>
+      <p class="footnote">The Square link only charges the $150 Starter. For Standard, Premium, or a retainer, email <a href="mailto:robert@agentops.studio?subject=Mixed-currency%20bills%20quote">robert@agentops.studio</a> first. Results are for your review before use. Not accounting, tax, or legal advice.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="kicker">Contact</p>
+        <h2>One "Total" cell over three currencies?</h2>
+        <p class="lede">Send a note with roughly how many bills and which currencies. We will reply with the package that fits. Please remove full bank or card numbers before sending a file.</p>
+        <ul class="identity">
+          <li><strong>Robert Thomas</strong></li>
+          <li>Memetic Media · Agent Ops Studio</li>
+        </ul>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-light" href="mailto:robert@agentops.studio?subject=Mixed-currency%20bills%20cleanup">Email robert@agentops.studio</a>
+        <p>Already paid? Use <a href="/start/">the send-your-file page</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="copyright">© 2026 Memetic Media · Agent Ops Studio</p>
+    <p class="legal">LedgerWright / Spreadsheet Rescue is a data-desk service of Memetic Media, run by Robert Thomas. Examples on this page are fictional. Delivered files are for your review before use. Not accounting, tax, or legal advice.</p>
+    <p class="legal"><a href="mailto:robert@agentops.studio">robert@agentops.studio</a></p>
+    <ul class="footer-links">
+      <li><a href="/#how">How it works</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#sample">Job-cost sample</a></li>
+      <li><a href="/#donors">Donor lists</a></li>
+      <li><a href="/rent-roll/">Rent rolls</a></li>
+      <li><a href="/mixed-currency/">Mixed-currency bills</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

@@ -753,6 +753,11 @@
           <summary>Do you clean rent rolls for property managers?</summary>
           <p>Yes. Send the rent roll or tenant ledger export as CSV or Excel. Rent is checked against paid for each unit, and short or over payments are flagged. Duplicate units and tenants on two units are pointed out, never merged. Figures are only read from the column that names them, so a deposit is never booked as rent. Ended leases are not rolled to month-to-month unless your file says so. We clean the file; we do not change your property-management software. See the <a href="/rent-roll/">rent-roll sample</a>.</p>
         </details>
+        <!-- Added 2026-11-25 with the /mixed-currency/ page. Matches ledgerwright.py per-currency totals (2026-11-24): no conversion, no cross-currency sum. -->
+        <details>
+          <summary>Some of my bills are in euros, pounds, or Canadian dollars. Is that a problem?</summary>
+          <p>No. Each bill keeps the currency it was billed in, and the report totals open balances, billed amounts, and credits separately for each currency. Nothing is converted, and EUR is never added to USD, so you won't see a made-up grand total. "$612.50 CAD" stays Canadian dollars. If a bill doesn't show its currency, check that row's currency column. See the <a href="/mixed-currency/">mixed-currency sample</a>.</p>
+        </details>
         <details>
           <summary>What if my pile is bigger than the package?</summary>
           <p>Tell us roughly how many files or rows. We will quote it before you pay.</p>
@@ -792,6 +797,7 @@
       <li><a href="/#donors">Donor lists</a></li>
       <li><a href="/rent-roll/">Rent rolls</a></li>
       <li><a href="/excel-formula-fix/">Excel formula fix</a></li>
+      <li><a href="/mixed-currency/">Mixed-currency bills</a></li>
       <li><a href="/#faq">FAQ</a></li>
       <li><a href="/#contact">Contact</a></li>
     </ul>

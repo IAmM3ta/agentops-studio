@@ -9,6 +9,16 @@ Agent Ops Studio is the Memetic Media sub-brand for LedgerWright templates, Spre
 - New high-intent page `/excel-formula-fix/` ("Formula broken? See it fixed before you pay"): pay-after-preview flow (PREVIEW screenshots first, then the existing $150 Starter Square link), free 20-row fix via prefilled email, $14/$24 Gumroad trackers for visitors who don't need a fix, Service + FAQPage JSON-LD. Linked from the homepage teardown section and footer; added to `sitemap.xml`.
 - IndexNow key file at the site root so new URLs can be submitted to Bing/Yandex.
 
+### Added
+
+- New page [/mixed-currency/](https://agentops.studio/mixed-currency/), "Bills in dollars, euros, and pounds", for anyone whose bills tracker adds EUR to USD. It covers what the cleanup does (open, billed, and credit totals kept per currency, with no conversion and no cross-currency grand total; "$612.50 CAD" stays CAD; European "1.450,00" is read as 1,450.00 and labeled; a computed balance is labeled), a fictional SAMPLE before/after of six bills in USD, CAD, EUR, and GBP, the same pricing (Square link charges only the $150 Starter; higher tiers email first), and contact. The sample comes from the private engine's `samples/currency_invoices.txt` and matches its stand-in output: "6 documents, $320.00, 612.50 CAD, 950.00 EUR, and 780.00 GBP still open."
+- Homepage FAQ: "Some of my bills are in euros, pounds, or Canadian dollars. Is that a problem?" It links to the new page.
+- `sitemap.xml` lists `/mixed-currency/`. The homepage and `/rent-roll/` lastmod are now 2026-11-25. Footer link "Mixed-currency bills" added on the homepage, `/rent-roll/`, and the new page.
+
+### Unchanged
+
+- Prices, the Square link, `CNAME`, Pages settings, and DNS. No address, phone, or secret was added. The page says plainly that we don't convert currencies or post to accounting software.
+
 ## 2026-11-24
 
 ### Changed
