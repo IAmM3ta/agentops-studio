@@ -4,6 +4,18 @@
 
 Agent Ops Studio is the Memetic Media sub-brand for LedgerWright templates, Spreadsheet Rescue, and custom business dashboards, operated by Robert Thomas. Constraints: $0 spend freeze (free Vercel and Neon tiers only; no paid services, domains, or API runs without Robert's OK). Cold email is on hold.
 
+## 2026-11-24
+
+### Changed
+
+- Homepage JSON-LD `makesOffer` now includes the three live LedgerWright Gumroad templates, with the same prices and URLs as the `#templates` buttons: [Cash Flow Tracker](https://ledgerwright.gumroad.com/l/cashflow-tracker) $14, [LedgerWright Bundle](https://ledgerwright.gumroad.com/l/ledgerwright-bundle) $24, [Job-Cost Tracker](https://ledgerwright.gumroad.com/l/job-cost-tracker) $14. Square offers are unchanged.
+- Added `twitter:image:alt` on the homepage and `/rent-roll/` (matching each page's `og:image:alt`) so shared-image previews have accessible text.
+- `/dashboard-intake/` now has Open Graph and Twitter card tags, so a shared intake link is not a bare URL. Prices in those tags stay $750 / $1,500.
+
+### Unchanged
+
+- Gumroad buy buttons on `#templates` are unchanged. No address, phone, or secret was added. `CNAME`, Pages settings, and DNS were not touched.
+
 ## 2026-11-23
 
 ### Added
