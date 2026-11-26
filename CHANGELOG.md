@@ -4,6 +4,19 @@
 
 Agent Ops Studio is the Memetic Media sub-brand for LedgerWright templates, Spreadsheet Rescue, and custom business dashboards, operated by Robert Thomas. Constraints: $0 spend freeze (free Vercel and Neon tiers only; no paid services, domains, or API runs without Robert's OK). Cold email is on hold.
 
+## 2026-11-26
+
+### Added
+
+- New page [/donor-list/](https://agentops.studio/donor-list/), "Clean the donor list before the year-end receipts go out", for nonprofits heading into Giving Tuesday and December receipts. It covers what the donor cleanup does (likely duplicates and households linked with a reason and never merged; pledges, hedged or double amounts, and unwritten dates left blank; DAF and matching-gift rows marked unclear for hard vs soft credit; every row says receipt ready yes or no and why), a fictional SAMPLE before/after table of ten of the 16 sample rows, the seven-line report ("Booked gifts: $7,490.00 across 13 rows"), the same pricing (the Square link charges only the $150 Starter; higher tiers email first), and contact. Service JSON-LD with the $150 Starter offer.
+- The sample rows come from the private engine's `samples/donors_export.txt`. A live grok-4.5 run of the donors profile on 2026-11-26 gave the same headline, report lines, and per-row values, so the page says "checked against a live run" for this sample only, and states plainly that it is not an accuracy rate and that we don't write receipts, give tax advice, or import into donor databases.
+- Homepage `#donors` section has a "See the full donor-list sample" button, and the donor FAQ answer links to the new page. The "Donor lists" footer link on the homepage, `/rent-roll/`, `/mixed-currency/`, and `/excel-formula-fix/` now goes to `/donor-list/`.
+- `sitemap.xml` lists `/donor-list/`, and the homepage lastmod is now 2026-11-26.
+
+### Unchanged
+
+- Prices, the Square links, `CNAME`, Pages settings, and DNS. No address, phone, or secret was added.
+
 ## 2026-11-25
 - `/excel-formula-fix/`: new #prices section with pay-after-preview tiers on new Square links: Small fix $10 (https://square.link/u/mhkT08AL), Standard $25 (https://square.link/u/LKtpxWZs), Dashboard/Tracker $50 (https://square.link/u/O2381SNX), plus the $150 Starter for bigger jobs. JSON-LD offers, meta descriptions and FAQ updated to match; the header CTA on this page now jumps to #prices instead of the $150 checkout.
 - New high-intent page `/excel-formula-fix/` ("Formula broken? See it fixed before you pay"): pay-after-preview flow (PREVIEW screenshots first, then the existing $150 Starter Square link), free 20-row fix via prefilled email, $14/$24 Gumroad trackers for visitors who don't need a fix, Service + FAQPage JSON-LD. Linked from the homepage teardown section and footer; added to `sitemap.xml`.

@@ -15,6 +15,7 @@ This repository is the website only. It is plain HTML and CSS, served free from 
 | `dashboard-intake/index.html` | Ops Dashboard Build intake (`/dashboard-intake/`): Starter $750 / Pro $1,500 pay buttons and a no-backend form that opens a prefilled email. In the sitemap |
 | `rent-roll/index.html` | Rent-roll page for property managers (`/rent-roll/`, added 2026-11-23): what the LedgerWright `rentroll` profile checks, a fictional SAMPLE before/after, pricing, contact. In the sitemap. Keep claims in sync with the profile |
 | `mixed-currency/index.html` | Mixed-currency bills page (`/mixed-currency/`, added 2026-11-25): per-currency totals with no conversion, a fictional SAMPLE before/after in USD, CAD, EUR, and GBP, pricing, contact. In the sitemap. Keep claims in sync with the engine's per-currency totals |
+| `donor-list/index.html` | Donor-list page (`/donor-list/`, added 2026-11-26): nonprofit donor and gift list cleanup before year-end receipts, a fictional SAMPLE before/after from the engine's donors profile, pricing, contact, Service JSON-LD. In the sitemap. Keep claims in sync with the engine's `donors` profile |
 | `start/index.html` | Post-payment intake page (`/start/`): tells a paid Spreadsheet Rescue buyer what to send and how. `noindex`, not in the sitemap |
 | `css/styles.css` | All presentation. Mobile-first |
 | `assets/favicon.svg` | Icon used by modern browsers |
@@ -22,7 +23,7 @@ This repository is the website only. It is plain HTML and CSS, served free from 
 | `assets/apple-touch-icon.png` | Icon for phones saving the site to the home screen |
 | `assets/og.png` | Image used when the link is shared (1200×630) |
 | `favicon.ico` | Fallback icon requested at the site root |
-| `sitemap.xml` | Sitemap: homepage, `/dashboard-intake/`, `/rent-roll/`, and `/mixed-currency/` (added 2026-11-25) (`/start/` is noindex and left out) |
+| `sitemap.xml` | Sitemap: homepage, `/dashboard-intake/`, `/rent-roll/`, `/mixed-currency/` (added 2026-11-25), `/donor-list/` (added 2026-11-26), and `/excel-formula-fix/` (`/start/` is noindex and left out) |
 | `robots.txt` | Crawler rules, points at the sitemap |
 | `CNAME` | Custom domain. The file contains exactly `agentops.studio` |
 | `.github/workflows/pages.yml` | Deploys the site to GitHub Pages on every push to `main` |
@@ -169,3 +170,4 @@ This repo follows a daily-commit practice. When you change the site, add a dated
 ## Mixed-currency bills page (added 2026-11-25)
 
 - `/mixed-currency/` sells cleanup of bills in more than one currency. Its claims come from the LedgerWright engine's per-currency totals (shipped 2026-11-24): open, billed, and credit totals are kept per currency code, nothing is converted, and there is never a cross-currency grand total. The SAMPLE table matches the engine's fictional `samples/currency_invoices.txt` and its stand-in output. Don't add exchange-rate conversion, FX, or accounting-software posting to the copy unless the engine gains them. The homepage FAQ and the footers link to it.
+- `/donor-list/` sells donor and gift list cleanup to nonprofits (added 2026-11-26). Its claims come from the LedgerWright `donors` profile: duplicates and households linked, never merged; pledges and unclear amounts or dates left blank; hard vs soft credit left to a person on DAF or matching rows; receipt ready yes/no with blockers. The SAMPLE table matches the engine's fictional `samples/donors_export.txt`; a live grok-4.5 run on 2026-11-26 matched the stand-in, which is the only basis for the page's "checked against a live run" line. Don't claim receipt writing, tax advice, or donor-database import. The homepage `#donors` section, donor FAQ, and footers link to it.
