@@ -12,6 +12,9 @@
   and the stand-in output (sample_output/rentroll/). Do not add features the profile lacks:
   it does not edit AppFolio/Buildium/Yardi, does not reconcile against a stated total row,
   and does not read scanned images.
+  2026-11-27: a live grok-4.5 run of this sample matched the stand-in on duplicates, short/over
+  payments, the expired lease, and blank hedged/two-figure cells (LIVE-RUN.md); the footnote under
+  the sample says so, for this sample only.
   Prices must match the homepage #pricing cards and JSON-LD: Starter $150 (the only amount the
   Square link charges), Standard $350, Premium $750, retainer from $750/mo (email first).
 -->
@@ -243,6 +246,9 @@
         </article>
       </div>
       <p class="footnote">Totals in the report (rent, paid, balances owed) are counted from written figures only. A blank is never filled in to make a total add up, so the report calls them "at least."</p>
+      <!-- Added 2026-11-27. True for THIS sample only: ledgerwright-desk LIVE-RUN.md, 27 Nov rentroll run. The live model
+           read unit 302's rent and unit 304's end year correctly, so the 302 row above shows a stand-in slip the checks catch. -->
+      <p class="footnote">Checked against a live run: on November 27, 2026 we ran this same fictional rent roll through the live model. It flagged the same duplicate unit, the same tenant on two units, the same short and over payments, the same expired lease, and left the hedged rent and the two-check cell blank. The live model read unit 302's rent correctly on its own; the deposit flag shown above is what the checks do when a model slips. That is a check on this sample, not an accuracy rate on your file, which is why a person reviews every delivery.</p>
     </div>
   </section>
 
@@ -288,6 +294,7 @@
       <li><a href="/#how">How it works</a></li>
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/#sample">Job-cost sample</a></li>
+      <li><a href="/job-cost/">Job-cost bills</a></li>
       <li><a href="/donor-list/">Donor lists</a></li>
       <li><a href="/rent-roll/">Rent rolls</a></li>
       <li><a href="/mixed-currency/">Mixed-currency bills</a></li>

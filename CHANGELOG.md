@@ -4,6 +4,20 @@
 
 Agent Ops Studio is the Memetic Media sub-brand for LedgerWright templates, Spreadsheet Rescue, and custom business dashboards, operated by Robert Thomas. Constraints: $0 spend freeze (free Vercel and Neon tiers only; no paid services, domains, or API runs without Robert's OK). Cold email is on hold.
 
+## 2026-11-27
+
+### Added
+
+- New page [/job-cost/](https://agentops.studio/job-cost/), "Sort the supplier bills by job, without anyone guessing the job", for contractors, trade shops, remodelers, and their bookkeepers. It covers what the job-cost cleanup does (a job is kept only where the bill writes it; each line on a two-job invoice keeps its own job; untagged lines are flagged to assign by hand; grouping only by matching job number, PO, or identical text, and every grouping is printed; cost type per line; an ambiguous "(x10), 48.50" is not multiplied out; cost by job from written or computed amounts only, credits subtract, "at least" when a line has no amount), a fictional SAMPLE before/after of eight lines from five bills, the cost-by-job report line (1423 Maple St at least $92.00; J-118 $1,232.40; J-121 $510.00; PO 2207 $476.00), the same pricing (the Square link charges only the $150 Starter; higher tiers email first), and contact. Service JSON-LD with the $150 Starter offer.
+- The sample comes from the private engine's `samples/jobcost_scraps.txt` and its stand-in output. A live grok-4.5 run on 2026-11-21 kept the same jobs, grouping, blank rental job, PEX review line, and cost by job, so the page says "checked against a live run" for this sample only. No open-balance total is quoted, because the live one differed.
+- Homepage: the job-cost `#sample` section has a "See the full job-cost sample" button, the proof section's "Supplier bills to a job-cost file" button goes to `/job-cost/`, and a new FAQ ("Can you sort contractor bills by job when half of them aren't tagged?") links to it. A "Job-cost bills" footer link was added on the homepage, `/rent-roll/`, `/donor-list/`, `/mixed-currency/`, `/excel-formula-fix/`, and the new page.
+- `/rent-roll/`: one footnote saying the same fictional sample was checked against a live run on 2026-11-27 (same duplicates, short and over payments, expired lease, and blank hedged and two-check cells), and that the live model read unit 302's rent correctly on its own, so the 302 flag shows what the checks do when a model slips.
+- `sitemap.xml` lists `/job-cost/`. The homepage and `/rent-roll/` lastmod are now 2026-11-27.
+
+### Unchanged
+
+- Prices, the Square links, `CNAME`, Pages settings, and DNS. No address, phone, or secret was added.
+
 ## 2026-11-26
 
 ### Added

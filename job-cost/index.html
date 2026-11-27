@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Costing for Contractors: Supplier Bills Sorted by Job, Nothing Guessed | Agent Ops Studio</title>
+<meta name="description" content="Contractor supplier bills, yard tickets, sub invoices, and texted bills sorted into one job-cost CSV and Excel file. Jobs kept only where written; untagged lines flagged to assign by hand. Fictional before/after sample. From $150.">
+<!--
+  Job-cost page (added 2026-11-27), for contractors, HVAC/plumbing/electrical shops,
+  remodelers, and the bookkeepers who do their job costing. Every claim here must match the
+  LedgerWright `jobcost` profile (ledgerwright-desk: profiles/jobcost.py, on the `invoices`
+  command; rules in PROFILES.md): a job is kept only if its text is written in the source
+  (a job inferred from a vendor or a neighboring bill is blanked and flagged); a line with no
+  written job is marked "missing" and the report says assign by hand; grouping is by explicit
+  id only (J-118, PO 2207, Job #44) or identical text, a street number is never an id, and
+  every grouping is printed; per-job totals use stated or computed line amounts only, per
+  currency, credits subtract, and a job with an unvalued line is "at least $X"; an ambiguous
+  quantity x price line ("(x10),48.50") is not computed; cost_type is materials, labor,
+  equipment, subcontract, permit, freight, fee, or unclear.
+  The rows below come from the fictional SAMPLE file samples/jobcost_scraps.txt and its
+  stand-in output (sample_output/jobcost/). A live grok-4.5 run on 2026-11-21 kept the same
+  jobs, the same J-118 grouping, the blank job on the rental, the PEX needs-review line, and
+  the same per-job totals (ledgerwright-desk STATUS.md / live_output/jobcost/). Its "still
+  open" total differed (it declined to value the excavator line), so this page does NOT quote
+  an open-balance total. The live-run line is true for THIS sample only, not an accuracy rate.
+  Do NOT claim: QuickBooks/Buildertrend/Procore import or sync, reading scanned images or
+  photos, WIP schedules, job profitability or estimates vs actuals, retainage, payroll, or
+  tax advice.
+  Prices must match the homepage #pricing cards and JSON-LD: Starter $150 (the only amount the
+  Square link charges), Standard $350, Premium $750, retainer from $750/mo (email first).
+-->
+<meta name="author" content="Robert Thomas">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#9f2d20">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://agentops.studio/job-cost/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Agent Ops Studio">
+<meta property="og:url" content="https://agentops.studio/job-cost/">
+<meta property="og:title" content="Job Costing for Contractors: Supplier Bills Sorted by Job, Nothing Guessed | Agent Ops Studio">
+<meta property="og:description" content="Supplier bills sorted by job. A job is kept only where the bill says it. Untagged lines are flagged, not guessed. Fictional sample, from $150.">
+<meta property="og:image" content="https://agentops.studio/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Agent Ops Studio. Messy files in, a clean file out. LedgerWright, Spreadsheet Rescue.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Job Costing for Contractors: Supplier Bills Sorted by Job, Nothing Guessed | Agent Ops Studio">
+<meta name="twitter:description" content="Supplier bills sorted by job. A job is kept only where the bill says it. Untagged lines are flagged, not guessed. Fictional sample, from $150.">
+<meta name="twitter:image" content="https://agentops.studio/assets/og.png">
+<meta name="twitter:image:alt" content="Agent Ops Studio. Messy files in, a clean file out. LedgerWright, Spreadsheet Rescue.">
+<link rel="stylesheet" href="/css/styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Job-cost bill cleanup for contractors (Spreadsheet Rescue)",
+  "serviceType": "Contractor job costing from supplier bills",
+  "url": "https://agentops.studio/job-cost/",
+  "description": "Supplier bills, yard tickets, sub invoices, and credit memos sorted into one job-cost CSV and Excel file. A job is kept only where the bill writes it. Lines with no job are flagged to assign by hand. Per-job totals from stated or computed line amounts only.",
+  "provider": {"@type": "Organization", "name": "Agent Ops Studio", "url": "https://agentops.studio/", "email": "robert@agentops.studio"},
+  "audience": {"@type": "Audience", "audienceType": "Contractors and construction bookkeepers"},
+  "offers": {"@type": "Offer", "name": "Spreadsheet Rescue Starter", "price": "150", "priceCurrency": "USD", "url": "https://square.link/u/rX4tuObB"}
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Same header as the homepage. Nav targets are root-absolute. -->
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a class="brand" href="/">
+      <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect width="32" height="32" rx="7" fill="currentColor"/>
+        <path d="M8 11.5h16M8 16h16M8 20.5h11" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span>
+        <span class="brand-name">Agent Ops Studio</span>
+        <span class="brand-sub">Memetic Media</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul>
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="#sample">Job-cost sample</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-small header-cta" href="https://square.link/u/rX4tuObB" target="_blank" rel="noopener noreferrer">Pay / Book<span class="sr-only">, opens the Square payment page for the $150 Starter in a new tab</span></a>
+  </div>
+</header>
+
+<main id="main">
+  <header class="hero">
+    <div class="wrap">
+      <p class="kicker">LedgerWright · Spreadsheet Rescue · Contractors</p>
+      <h1>Sort the supplier bills by job, without anyone guessing the job.</h1>
+      <p class="lede">The plumbing supply bill says "Job: 1423 Maple St." The lumber ticket says "PO 2207." The electrician put two jobs on one invoice. And the excavator rental came in as a text that says "don't remember which job." We turn that pile into one job-cost CSV and Excel file. A job is kept only where the bill writes it. Lines with no job are flagged for you to assign, never filled in by guesswork. Robert Thomas reviews every file before it comes back.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://square.link/u/rX4tuObB" target="_blank" rel="noopener noreferrer">Pay / Book $150<span class="sr-only">, Starter, opens the Square payment page in a new tab</span></a>
+        <a class="btn btn-ghost" href="#sample">See the sample</a>
+      </div>
+      <p class="fine">One messy pile of bills fits the $150 Starter. CSV and Excel back within 48 hours of receiving the files.</p>
+    </div>
+  </header>
+
+  <section class="band" id="what">
+    <div class="wrap">
+      <p class="kicker">What the cleanup does</p>
+      <h2>Every line tied to the job the bill names, or flagged</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>Jobs, as written</h3>
+          <ul class="mark-list">
+            <li>A job is kept only when its name or number is written on the bill. A job is never picked from the vendor's name or from the bill next to it.</li>
+            <li>Two jobs on one invoice? Each line keeps its own job.</li>
+            <li>A line with no job written is marked missing, and the report tells you to assign it by hand.</li>
+            <li>Jobs are grouped only by a matching job number ("J-118 Oakview addition" = "J-118"), PO, or identical text. A street number is never treated as a job number. Every grouping is printed so you can check it.</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h3>Amounts, as written</h3>
+          <ul class="mark-list">
+            <li>Each line gets a cost type: materials, labor, equipment, subcontract, permit, freight, fee, or unclear.</li>
+            <li>A line like "(x10), 48.50" could be a unit price or a total. It is flagged and not multiplied out.</li>
+            <li>Cost by job adds up stated or computed line amounts only. Credits subtract. A job with an unvalued line is shown as "at least."</li>
+            <li>Totals stay in the currency of the bill. Nothing is converted.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>What you send</h3>
+          <ul class="mark-list">
+            <li>Supplier bills, yard tickets, sub invoices, and credit memos as text, CSV, Excel, or pasted from email</li>
+            <li>Texts or notes about bills, even half-remembered ones</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h3>What you get back</h3>
+          <ul class="mark-list">
+            <li>A CSV file and an Excel file, one row per bill line, with vendor, bill number, date, amount, job as written, job key, where the job came from (the line or the whole bill), and cost type</li>
+            <li>A short report: cost by job, lines with no job, groupings made, bills still open, credits to apply, and lines that need a person</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sample">
+    <div class="wrap">
+      <p class="kicker">Sample · Supplier bills, one month</p>
+      <h2>A fictional pile of contractor bills, before and after</h2>
+      <p class="sub">SAMPLE: five made-up bills for a small remodeling and service company, run through the same job-cost rules we use on client files. Vendors, jobs, and amounts are fictional. Not a client file. The result: <strong>5 documents, 4 jobs, 2 lines with no job written (assign by hand), nothing guessed.</strong></p>
+      <p class="scroll-hint">On a small screen, swipe the table sideways to read every column.</p>
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Sample contractor bills sorted by job. Fictional. Scroll sideways for more columns.">
+        <table class="sheet">
+          <caption>SAMPLE rows, fictional. Not a client file.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Before (as written)</th>
+              <th scope="col">Job</th>
+              <th scope="col">Job from</th>
+              <th scope="col">Cost type</th>
+              <th scope="col" class="num">Amount (USD)</th>
+              <th scope="col">Flag</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Blue Hollow Plumbing Supply · Job: 1423 Maple St · PEX 1/2in coil (x10),48.50</td>
+              <td>1423 Maple St</td>
+              <td>whole bill</td>
+              <td>materials</td>
+              <td class="num">(blank)</td>
+              <td><span class="flag-word">Flag.</span> 48.50 could be the unit price or the total for 10. Not computed.</td>
+            </tr>
+            <tr>
+              <td>Blue Hollow · brass ball valve 3/4 · 6 @ 14.25</td>
+              <td>1423 Maple St</td>
+              <td>whole bill</td>
+              <td>materials</td>
+              <td class="num">85.50</td>
+              <td>6 × 14.25, computed and labeled.</td>
+            </tr>
+            <tr>
+              <td>Cedar &amp; Stone Lumber · PO 2207 / Hendricks kitchen remodel · 2x4x8 SPF, 40 ea 4.10</td>
+              <td>PO 2207 / Hendricks kitchen remodel</td>
+              <td>whole bill</td>
+              <td>materials</td>
+              <td class="num">164.00</td>
+              <td>Paid on account. Total not written, so only the subtotal is computed.</td>
+            </tr>
+            <tr>
+              <td>Kestrel Electric · Job #J-118 Oakview addition · rough-in labor 12 hrs @ 85.00</td>
+              <td>J-118 Oakview addition</td>
+              <td>line</td>
+              <td>labor</td>
+              <td class="num">1,020.00</td>
+              <td>Two jobs on one bill. Each line keeps its own.</td>
+            </tr>
+            <tr>
+              <td>Kestrel Electric · Job #J-121 Pine Ct service upgrade · labor 6 hrs @ 85.00</td>
+              <td>J-121 Pine Ct service upgrade</td>
+              <td>line</td>
+              <td>labor</td>
+              <td class="num">510.00</td>
+              <td>Separate job on the same bill.</td>
+            </tr>
+            <tr>
+              <td>Kestrel Electric · "materials per attached list, J-118" · 212.40</td>
+              <td>J-118</td>
+              <td>line</td>
+              <td>materials</td>
+              <td class="num">212.40</td>
+              <td>Grouped with "J-118 Oakview addition" by job number. Grouping printed in the report.</td>
+            </tr>
+            <tr>
+              <td>Credit memo · Blue Hollow · returned (2) ball valves, Job: 1423 Maple St · (28.50)</td>
+              <td>1423 Maple St</td>
+              <td>whole bill</td>
+              <td>materials</td>
+              <td class="num">-28.50</td>
+              <td>Credit. Subtracts from the job.</td>
+            </tr>
+            <tr>
+              <td>Text from Dale: "Tri-County Rentals ... mini excavator, 2 days, $640 + fuel 45 ... don't remember which job"</td>
+              <td>(blank)</td>
+              <td>missing</td>
+              <td>equipment, fee</td>
+              <td class="num">640.00 + 45.00</td>
+              <td><span class="flag-word">Flag.</span> No job written. Assign it by hand. No bill number or date either.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="examples">
+        <article class="example">
+          <h3>Cost by job, from the report</h3>
+          <p class="label">Report says</p>
+          <p class="clean">1423 Maple St: at least $92.00 · J-118 Oakview addition: $1,232.40 · J-121 Pine Ct service upgrade: $510.00 · PO 2207 / Hendricks kitchen remodel: $476.00. Grouped by matching job number: J-118 Oakview addition = J-118. 2 lines have no job written (Tri-County Rentals). Assign before job costing; nothing was guessed.</p>
+          <p class="why">Maple St says "at least" because the PEX line has no amount yet. The total is never padded to look finished.</p>
+        </article>
+        <article class="example">
+          <h3>A bill nobody tagged</h3>
+          <p class="label">Before</p>
+          <p class="raw">text from Dale: "Tri-County Rentals billed us for the mini excavator, 2 days, $640 + fuel 45. not paid. don't remember which job"</p>
+          <p class="label">After</p>
+          <p class="clean">Tri-County Rentals · 2 lines · job (blank) · job from: missing · flag: no job written, assign by hand</p>
+          <p class="why">The rental could belong to any of the jobs that month. Picking one would put the cost on the wrong job, so it stays with you.</p>
+        </article>
+        <article class="example">
+          <h3>One number, two meanings</h3>
+          <p class="label">Before</p>
+          <p class="raw">PEX 1/2in coil (x10),48.50</p>
+          <p class="label">After</p>
+          <p class="clean">PEX 1/2in coil (48.50 as written) · qty 10 · amount (blank) · needs review: unit price or line total?</p>
+          <p class="why">$48.50 each is $485.00. $48.50 for all ten is $48.50. That difference belongs on a person's desk, not in a formula.</p>
+        </article>
+      </div>
+      <p class="footnote">Checked against a live run: on November 21, 2026 we ran this same fictional pile through the live model. It kept the same jobs, grouped J-118 the same way, left the rental's job blank, held the PEX line for review, and gave the same cost by job shown above. That is a check on this sample, not an accuracy rate on your bills, which is why a person reviews every delivery. We do not import into or change QuickBooks or your job-management software, and we do not read photos or scans.</p>
+    </div>
+  </section>
+
+  <section class="band" id="jobcost-pricing">
+    <div class="wrap">
+      <p class="kicker">Pricing</p>
+      <h2>Same catalog as every Spreadsheet Rescue</h2>
+      <ul class="mark-list">
+        <li><strong>Starter, $150:</strong> one messy pile of bills, receipts, or a single spreadsheet. Pay / Book checks out this package on Square, and the file comes back within 48 hours of arriving.</li>
+        <li><strong>Standard, $350:</strong> several jobs, or a month of bills, receipts, and spreadsheets, brought into one job-cost file. Email first; we confirm the amount before you pay.</li>
+        <li><strong>Premium, $750:</strong> a larger or messier backlog and a closer pass. Email first.</li>
+        <li><strong>Monthly retainer, from $750/mo:</strong> the same sort on a schedule, for example every month-end. Ask for a quote.</li>
+      </ul>
+      <p class="footnote">The Square link only charges the $150 Starter. For Standard, Premium, or a retainer, email <a href="mailto:robert@agentops.studio?subject=Job-cost%20quote">robert@agentops.studio</a> first. Results are for your review before use. Not accounting, tax, or legal advice.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="kicker">Contact</p>
+        <h2>Month-end bills piling up?</h2>
+        <p class="lede">Send a note with roughly how many bills and how many jobs. We will reply with the package that fits. You can send 20 rows or a few bills first for a free teardown. Please remove full bank or card numbers before sending a file.</p>
+        <ul class="identity">
+          <li><strong>Robert Thomas</strong></li>
+          <li>Memetic Media · Agent Ops Studio</li>
+        </ul>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-light" href="mailto:robert@agentops.studio?subject=Job-cost%20cleanup">Email robert@agentops.studio</a>
+        <p>Already paid? Use <a href="/start/">the send-your-file page</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="copyright">© 2026 Memetic Media · Agent Ops Studio</p>
+    <p class="legal">LedgerWright / Spreadsheet Rescue is a data-desk service of Memetic Media, run by Robert Thomas. Examples on this page are fictional. Delivered files are for your review before use. Not accounting, tax, or legal advice.</p>
+    <p class="legal"><a href="mailto:robert@agentops.studio">robert@agentops.studio</a></p>
+    <ul class="footer-links">
+      <li><a href="/#how">How it works</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#sample">Job-cost sample</a></li>
+      <li><a href="/job-cost/">Job-cost bills</a></li>
+      <li><a href="/donor-list/">Donor lists</a></li>
+      <li><a href="/rent-roll/">Rent rolls</a></li>
+      <li><a href="/mixed-currency/">Mixed-currency bills</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

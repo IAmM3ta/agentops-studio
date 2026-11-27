@@ -282,7 +282,7 @@
       </figure>
       <div class="hero-actions">
         <a class="btn btn-ghost" href="/rent-roll/">Rent roll, row by row</a>
-        <a class="btn btn-ghost" href="#sample">Supplier bills to a job-cost file</a>
+        <a class="btn btn-ghost" href="/job-cost/">Supplier bills to a job-cost file</a>
         <a class="btn btn-ghost" href="#donors">Donor list, before and after</a>
       </div>
     </div>
@@ -586,6 +586,12 @@
           <p class="why">Duplicates are shown, not deleted. You decide which copy stays.</p>
         </article>
       </div>
+      <!-- Link to the full job-cost landing page (added 2026-11-27). The rows above are written for
+           this page; /job-cost/ shows the engine's own SAMPLE bills (jobcost profile). -->
+      <div class="hero-actions">
+        <a class="btn" href="/job-cost/">See the full job-cost sample</a>
+        <a class="btn btn-ghost" href="mailto:robert@agentops.studio?subject=Job-cost%20cleanup">Email about a pile of bills</a>
+      </div>
     </div>
   </section>
 
@@ -748,6 +754,11 @@
           <summary>Is it 100% accurate? Is this accounting advice?</summary>
           <p>No cleanup is perfect, and we will not claim that. What you get is a file where every change is labeled and every doubtful item is flagged, so you know what to double-check. Results are for your review before use. They are not accounting, tax, or legal advice.</p>
         </details>
+        <!-- Added 2026-11-27 with the /job-cost/ page. Must match the LedgerWright jobcost profile (PROFILES.md). -->
+        <details>
+          <summary>Can you sort contractor bills by job when half of them aren't tagged?</summary>
+          <p>Yes. Send the supplier bills, yard tickets, sub invoices, credit memos, and even texts about bills. A job is kept only where the bill writes it, and each line on a two-job invoice keeps its own job. A line with no job written is flagged for you to assign; it is never guessed from the vendor or the bill next to it. Jobs are grouped only by a matching job number or PO, and every grouping is printed. Cost by job adds up written or computed amounts only, credits subtract, and a job with an unvalued line says "at least." See the <a href="/job-cost/">job-cost sample</a>.</p>
+        </details>
         <!-- Added 2026-11-22 with the donors sample above. -->
         <details>
           <summary>Do you clean donor lists for nonprofits?</summary>
@@ -799,6 +810,7 @@
       <li><a href="/#how">How it works</a></li>
       <li><a href="/#pricing">Pricing</a></li>
       <li><a href="/#sample">Sample</a></li>
+      <li><a href="/job-cost/">Job-cost bills</a></li>
       <li><a href="/donor-list/">Donor lists</a></li>
       <li><a href="/rent-roll/">Rent rolls</a></li>
       <li><a href="/excel-formula-fix/">Excel formula fix</a></li>
