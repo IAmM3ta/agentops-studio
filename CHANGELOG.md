@@ -4,6 +4,19 @@
 
 Agent Ops Studio is the Memetic Media sub-brand for LedgerWright templates, Spreadsheet Rescue, and custom business dashboards, operated by Robert Thomas. Constraints: $0 spend freeze (free Vercel and Neon tiers only; no paid services, domains, or API runs without Robert's OK). Cold email is on hold.
 
+## 2026-11-28
+
+### Added
+
+- New page [/samples/](https://agentops.studio/samples/), "Find the sample that looks like your mess": one hub to send a prospect. Five cards, each with a one-line "who it's for", what the sample shows, and a link to its `#sample` section: contractor bills by job (`/job-cost/`), donor list before year-end receipts (`/donor-list/`), rent roll (`/rent-roll/`), bills in four currencies (`/mixed-currency/`), and the Excel formula fix (`/excel-formula-fix/`, described as its own offer, with no sample claimed). Only the job-cost, donor-list, and rent-roll cards say "checked against a live run", because those are the only samples that were. Below the cards: "What you send, what you get back, in 48 hours", the same pricing (the Square link charges only the $150 Starter; higher tiers email first; the formula fix keeps its own prices on its page), and contact. CollectionPage / ItemList JSON-LD, canonical, Open Graph, and Twitter tags.
+- Homepage `#sample` section has a "See all five samples" button. An "All samples" footer link was added on the homepage, `/job-cost/`, `/donor-list/`, `/rent-roll/`, `/mixed-currency/`, `/excel-formula-fix/`, and the new page.
+- `sitemap.xml` lists `/samples/`. The homepage lastmod is now 2026-11-28.
+- The same five samples now also exist as attachable one-pagers in the private engine (`tools/proposal_pack.py`), and their email versions link these pages.
+
+### Unchanged
+
+- Prices, the Square links (including the $10 / $25 / $50 links on `/excel-formula-fix/`), `CNAME`, Pages settings, and DNS. No address, phone, or secret was added.
+
 ## 2026-11-27
 
 ### Added
